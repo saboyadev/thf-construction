@@ -1,22 +1,47 @@
 ---
-const links = ['Home', 'Services', 'Gallery', 'About', 'FAQ']
+const links = [
+  { label: "Services", href: "#services" },
+  { label: "Why Us", href: "#why-us" },
+  { label: "Projects", href: "#projects" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "FAQ", href: "#faq" },
+];
+const phone = "+12016860089";
+const phoneDisplay = "(201) 686-0089";
 ---
 
-<div class="hidden absolute w-full" id='mobile-menu'>
-
-  <div class='bg-gradient-to-b from-main to-[#f7ad78]' >
-  	<div class='space-y-1' >
-      {links.map(link => (
-          <li class="list-none pl-4 sm:pl-6 py-4 drop-shadow-2xl">
+<div class="absolute hidden w-full" id="mobile-menu">
+  <div class="bg-gradient-to-b from-main to-[#f7ad78]">
+    <div class="space-y-1 pb-6">
+      {
+        links.map(({ label, href }) => (
+          <li class="list-none py-3 pl-4 drop-shadow-2xl sm:pl-6">
             <a
-        			href='#'
-        			class=' text-xl text-light-gray font-semibold'
-        			aria-current='page'>{link}
+              href={href}
+              class="text-xl font-semibold text-light-gray"
+              aria-current="page"
+            >
+              {label}
             </a>
           </li>
         ))
-  		}
-  	</div>
+      }
+      <div class="space-y-2 px-4 pt-4 sm:px-6">
+        <a
+          href={`tel:${phone}`}
+          class="flex w-full items-center justify-center gap-2 rounded-md bg-white px-4 py-3 text-base font-semibold text-my-black"
+        >
+          <span class="material-symbols-outlined text-[20px] text-main">call</span>
+          {phoneDisplay}
+        </a>
+        <a
+          href="#book"
+          class="flex w-full items-center justify-center gap-2 rounded-md bg-my-black px-4 py-3 text-base font-semibold text-white"
+        >
+          Book Free Consultation
+          <span class="material-symbols-outlined text-[20px]">arrow_right_alt</span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
-

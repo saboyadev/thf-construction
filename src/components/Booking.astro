@@ -1,0 +1,223 @@
+---
+const phone = "+12016860089";
+const phoneDisplay = "(201) 686-0089";
+const email = "wider@thfconstructionnj.com";
+---
+
+<section class="bg-my-black px-6 py-20 text-white" id="book">
+  <div
+    class="mx-auto grid max-w-[1200px] items-start gap-14 lg:grid-cols-[1fr_1.1fr]"
+  >
+    <div>
+      <p class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-main">
+        Free Consultation
+      </p>
+      <h2
+        class="mb-4 text-[clamp(30px,4.2vw,44px)] font-bold leading-[1.1] tracking-[-0.04em] text-white"
+      >
+        Let's walk your space and talk through it.
+      </h2>
+      <p class="mb-7 max-w-[460px] text-[17px] leading-relaxed text-gray">
+        One quick visit. We listen, take measurements, and follow up with a
+        written, line-item quote. No pressure, no salesperson — just Wider,
+        with honest numbers.
+      </p>
+      <div class="grid max-w-[460px] gap-3.5">
+        <div class="flex gap-3 text-[15px] text-egg-white">
+          <span class="material-symbols-outlined flex-shrink-0 text-[22px] text-main"
+            >schedule</span
+          >
+          <div>
+            <strong class="text-white">30–45 minutes on site.</strong> We come to
+            you, evenings or weekends are fine.
+          </div>
+        </div>
+        <div class="flex gap-3 text-[15px] text-egg-white">
+          <span class="material-symbols-outlined flex-shrink-0 text-[22px] text-main"
+            >request_quote</span
+          >
+          <div>
+            <strong class="text-white">Written quote in 3–5 days.</strong>{" "}
+            Line-item, in plain English. Yours to keep.
+          </div>
+        </div>
+        <div class="flex gap-3 text-[15px] text-egg-white">
+          <span class="material-symbols-outlined flex-shrink-0 text-[22px] text-main"
+            >handshake</span
+          >
+          <div>
+            <strong class="text-white">No obligation.</strong> Hire us, hire someone
+            else, or sit on it for a year. No follow-up nags.
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-8 flex flex-wrap items-center gap-4 border-t border-white/10 pt-6"
+      >
+        <a
+          href={`tel:${phone}`}
+          class="inline-flex items-center gap-2 text-[15px] font-medium text-white"
+        >
+          <span class="material-symbols-outlined text-[22px] text-main">call</span>
+          {phoneDisplay}
+        </a>
+        <span class="h-4 w-px bg-white/15"></span>
+        <a
+          href={`sms:${phone}`}
+          class="inline-flex items-center gap-2 text-[15px] font-medium text-white"
+        >
+          <span class="material-symbols-outlined text-[22px] text-main">sms</span>
+          Text us
+        </a>
+        <span class="h-4 w-px bg-white/15"></span>
+        <a
+          href={`mailto:${email}`}
+          class="inline-flex items-center gap-2 text-[15px] font-medium text-white"
+        >
+          <span class="material-symbols-outlined text-[22px] text-main">mail</span>
+          Email Wider
+        </a>
+      </div>
+    </div>
+
+    <form
+      name="consultation"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/thanks"
+      class="rounded-lg bg-white p-8 text-my-black shadow-xl"
+    >
+      <input type="hidden" name="form-name" value="consultation" />
+      <p class="hidden">
+        <label>Don't fill this out: <input name="bot-field" /></label>
+      </p>
+
+      <h3 class="mb-1 text-xl font-bold tracking-tight text-my-black">
+        Book a free in-home consultation
+      </h3>
+      <p class="mb-6 text-sm text-wolf-gray">
+        Takes 1 minute. Wider usually calls back the same day.
+      </p>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="flex flex-col">
+          <label for="f-name" class="mb-1.5 text-[13px] font-medium text-dark-metallic"
+            >Your name<span class="ml-0.5 text-main">*</span></label
+          >
+          <input
+            id="f-name"
+            type="text"
+            name="name"
+            required
+            autocomplete="name"
+            class="rounded-md border border-rule px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-none focus:ring-2 focus:ring-main-soft"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="f-phone" class="mb-1.5 text-[13px] font-medium text-dark-metallic"
+            >Phone<span class="ml-0.5 text-main">*</span></label
+          >
+          <input
+            id="f-phone"
+            type="tel"
+            name="phone"
+            required
+            autocomplete="tel"
+            placeholder="(201) 555-0100"
+            class="rounded-md border border-rule px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-none focus:ring-2 focus:ring-main-soft"
+          />
+        </div>
+      </div>
+
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        <div class="flex flex-col">
+          <label for="f-email" class="mb-1.5 text-[13px] font-medium text-dark-metallic"
+            >Email<span class="ml-0.5 text-main">*</span></label
+          >
+          <input
+            id="f-email"
+            type="email"
+            name="email"
+            required
+            autocomplete="email"
+            class="rounded-md border border-rule px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-none focus:ring-2 focus:ring-main-soft"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="f-zip" class="mb-1.5 text-[13px] font-medium text-dark-metallic"
+            >Town or zip<span class="ml-0.5 text-main">*</span></label
+          >
+          <input
+            id="f-zip"
+            type="text"
+            name="zip"
+            required
+            autocomplete="postal-code"
+            placeholder="Wyckoff or 07481"
+            class="rounded-md border border-rule px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-none focus:ring-2 focus:ring-main-soft"
+          />
+        </div>
+      </div>
+
+      <div class="mt-4 flex flex-col">
+        <label for="f-project" class="mb-1.5 text-[13px] font-medium text-dark-metallic"
+          >Type of project<span class="ml-0.5 text-main">*</span></label
+        >
+        <select
+          id="f-project"
+          name="project"
+          required
+          class="rounded-md border border-rule bg-white px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-none focus:ring-2 focus:ring-main-soft"
+        >
+          <option value="">Select a project type…</option>
+          <option>Interior</option>
+          <option>Exterior</option>
+          <option>Both interior &amp; exterior</option>
+          <optgroup label="Interior — specific">
+            <option>Kitchen remodel</option>
+            <option>Bathroom remodel</option>
+            <option>Basement finishing</option>
+            <option>Attic conversion</option>
+            <option>Full interior renovation</option>
+          </optgroup>
+          <optgroup label="Exterior — specific">
+            <option>Stucco / siding</option>
+            <option>Deck</option>
+            <option>Pavers / patio</option>
+            <option>Stone &amp; hardscape</option>
+            <option>Full exterior renovation</option>
+          </optgroup>
+          <option>Not sure yet — let's talk</option>
+        </select>
+      </div>
+
+      <div class="mt-4 flex flex-col">
+        <label for="f-message" class="mb-1.5 text-[13px] font-medium text-dark-metallic"
+          >Tell us a little about it<span class="ml-0.5 text-main">*</span></label
+        >
+        <textarea
+          id="f-message"
+          name="message"
+          rows="4"
+          required
+          minlength="10"
+          placeholder="Rough idea, timeline, anything you've already been quoted, photos welcome later by text…"
+          class="min-h-24 resize-y rounded-md border border-rule px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-none focus:ring-2 focus:ring-main-soft"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-main px-6 py-4 text-base font-semibold text-white shadow-sm hover:bg-main-hover"
+      >
+        Request my free consultation
+        <span class="material-symbols-outlined text-[20px]">arrow_right_alt</span>
+      </button>
+      <p class="mt-3.5 text-xs leading-relaxed text-wolf-gray">
+        By submitting you agree we can call or text the number above. No spam,
+        ever — we hate it too.
+      </p>
+    </form>
+  </div>
+</section>

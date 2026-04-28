@@ -1,4 +1,5 @@
 ---
+import {Image} from 'astro:assets'
 import imageList from '../data/images.json'
 const doubledList = imageList.concat(imageList)
 ---
@@ -10,7 +11,7 @@ const doubledList = imageList.concat(imageList)
 		{
 			doubledList.map(image => (
 				<div class='rounded-md overflow-hidden relative mx-2 h-full w-48 sm:h-[270px] sm:w-[380px]'>
-					<img class="bg-cover bg-center absolute t-0 l-0 h-full w-full" src={image} alt='' />
+					<Image class="bg-cover bg-center absolute t-0 l-0 h-full w-full object-cover" src={image} alt='' width={380} height={270} loading="eager" />
 				</div>
 			))
 		}

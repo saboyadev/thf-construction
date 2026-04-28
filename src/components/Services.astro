@@ -1,17 +1,124 @@
 ---
 import ServiceCard from "./ServiceCard.astro";
+
+const interior = [
+  {
+    title: "Kitchens",
+    sub: "Full custom builds & remodels",
+    img: "/src/images/carousel/02-slide.jpg",
+  },
+  {
+    title: "Bathrooms",
+    sub: "Tile, plumbing, finishes",
+    img: "/src/images/carousel/07-slide.jpg",
+  },
+  {
+    title: "Basements",
+    sub: "Finished living spaces",
+    img: "/src/images/carousel/09-slide.jpg",
+  },
+  {
+    title: "Attics",
+    sub: "Bonus rooms & dormers",
+    img: "/src/images/carousel/03-slide.jpg",
+  },
+];
+
+const exterior = [
+  {
+    title: "Stucco & Siding",
+    sub: "EIFS, stone veneer, vinyl",
+    img: "/src/images/carousel/05-slide.jpg",
+  },
+  {
+    title: "Decks",
+    sub: "Composite & hardwood",
+    img: "/src/images/carousel/06-slide.jpg",
+  },
+  {
+    title: "Pavers & Patios",
+    sub: "Walkways, driveways",
+    img: "/src/images/carousel/04-slide.jpg",
+  },
+  {
+    title: "Stone & Hardscape",
+    sub: "Walls, steps, fire pits",
+    img: "/src/images/carousel/08-slide.jpg",
+  },
+];
 ---
 
-<section class="bg-egg-white flex flex-col py-16 items-center">
-    <h3 class="uppercase tracking-widest text-neutral-500 text-lg mb-3 ">Our Services</h3>
-    <h4 class="text-xs sm:text-lg md:text-2xl lg:text-3xl font-bold w-1/3 text-center mb-6">Explore how we can <span
-            class="text-orange-500">transform</span>
-        your home.</h4>
-    <section class="w-full flex flex-wrap flex-row justify-center gap-10">
-        <ServiceCard title="Kitchens" imageUrl="src/images/carousel/02-slide.jpg" link="#"/>
-        <ServiceCard title="Basements" imageUrl="src/images/carousel/09-slide.jpg" link="#"/>
-        <ServiceCard title="Bathrooms" imageUrl="src/images/carousel/07-slide.jpg" link="#"/>
-        <ServiceCard title="Media Rooms" imageUrl="src/images/carousel/03-slide.jpg" link="#"/>
-        <ServiceCard title="Full Renovations" imageUrl="src/images/carousel/01-slide.jpg" link="#"/>
-    </section>
+<section class="bg-egg-white py-20" id="services">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <div class="mb-10 text-center">
+      <p
+        class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-gray"
+      >
+        Our Services
+      </p>
+      <h2
+        class="mb-3 text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-my-black"
+      >
+        Explore how we can <span class="text-main">transform</span> your home.
+      </h2>
+      <p class="mx-auto max-w-[680px] text-[17px] leading-relaxed text-wolf-gray">
+        Top to bottom, inside and out — full interior and exterior renovations
+        across North Jersey.
+      </p>
+    </div>
+
+    <div class="mb-14">
+      <div
+        class="mb-6 flex flex-col items-center gap-2 border-b border-my-black/10 pb-4 text-center"
+      >
+        <h3 class="text-[22px] font-bold tracking-tight text-main">
+          Interior
+        </h3>
+        <p class="text-sm text-wolf-gray">
+          Kitchens, baths, basements, attics, full interior remodels
+        </p>
+      </div>
+      <div
+        class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {
+          interior.map((s) => (
+            <ServiceCard
+              title={s.title}
+              sub={s.sub}
+              imageUrl={s.img}
+              link="#book"
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    <div>
+      <div
+        class="mb-6 flex flex-col items-center gap-2 border-b border-my-black/10 pb-4 text-center"
+      >
+        <h3 class="text-[22px] font-bold tracking-tight text-main">
+          Exterior
+        </h3>
+        <p class="text-sm text-wolf-gray">
+          Siding, stucco, decks, pavers, stone & hardscape
+        </p>
+      </div>
+      <div
+        class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {
+          exterior.map((s) => (
+            <ServiceCard
+              title={s.title}
+              sub={s.sub}
+              imageUrl={s.img}
+              link="#book"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </section>

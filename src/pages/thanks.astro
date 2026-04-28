@@ -1,0 +1,33 @@
+---
+import "../custom-style.css";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="THF Construction LLC | Thanks">
+  <section class="flex min-h-[60vh] items-center justify-center bg-egg-white px-6 py-20">
+    <div class="mx-auto max-w-[560px] rounded-2xl bg-white p-10 text-center shadow-xl">
+      <div
+        class="mx-auto mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full bg-main text-white"
+      >
+        <span class="material-symbols-outlined text-[36px]">check</span>
+      </div>
+      <h1 class="mb-2 text-3xl font-bold tracking-tight text-my-black">
+        Thanks — we got it.
+      </h1>
+      <p class="mb-6 text-base leading-relaxed text-wolf-gray">
+        One of us will be in touch within one business day to set up your free
+        in-home consult. Need to talk now? Call us at
+        <a href="tel:+12016860089" class="font-semibold text-main hover:underline"
+          >(201) 686-0089</a
+        >.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center gap-1.5 rounded-md bg-dark-metallic px-5 py-3 text-sm font-semibold text-white hover:opacity-90"
+      >
+        Back to Home
+        <span class="material-symbols-outlined text-[18px]">arrow_right_alt</span>
+      </a>
+    </div>
+  </section>
+</MainLayout>

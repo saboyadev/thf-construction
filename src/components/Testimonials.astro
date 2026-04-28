@@ -1,22 +1,76 @@
 ---
 import TestimonialCard from "./TestimonialCard.astro";
+
+const items = [
+  {
+    name: "Maria & John K.",
+    town: "Wyckoff, NJ",
+    review:
+      "We interviewed three contractors and THF was the only one who actually listened. They came in on budget, on time, and our kitchen is exactly what we asked for — and then some.",
+    rating: 5,
+    img: "/src/images/carousel/02-slide.jpg",
+  },
+  {
+    name: "David S.",
+    town: "Clifton, NJ",
+    review:
+      "Wider and his crew rebuilt the entire back of our house — siding, deck, and a paver patio. Clean job site every single day. Real craftsmanship, no shortcuts.",
+    rating: 5,
+    img: "/src/images/carousel/06-slide.jpg",
+  },
+  {
+    name: "The Almeida Family",
+    town: "Garfield, NJ",
+    review:
+      "They finished our basement and turned the attic into a real bedroom for our oldest. Family-owned shows in everything they do — they treated our home like their own.",
+    rating: 5,
+    img: "/src/images/carousel/09-slide.jpg",
+  },
+];
 ---
 
-<section class="bg-light-gray flex flex-col py-16 items-center">
-    <h3 class="uppercase tracking-widest text-neutral-500 text-lg mb-3 ">Testimonials</h3>
-    <h4 class="text-xs sm:text-lg md:text-2xl lg:text-3xl font-bold w-1/3 text-center mb-6">What our clients are
-        saying:</h4>
-    <p class="text-xs md:text-lg lg:text-xl w-4/5 text-center">Our clients rave about their experiences working with us because we always strive for perfection, but don't take
-        our word for it:</p>
-    <section class="w-3/4 my-10 flex gap-7 flex-wrap flex-row justify-evenly">
-        <TestimonialCard
-                review="This is the best company I have ever worked with. The level of professionalism and dedication to customer satisfaction is unmatched. I highly recommend their services."
-                name="Rogelio Mitre" description="Web Developer - THF"/>
-        <TestimonialCard
-                review="I am incredibly impressed with the quality of products and services provided by this company. Their attention to detail and commitment to excellence shine through in every interaction. It's been a pleasure doing business with them."
-                name="Samantha Chen"/>
-        <TestimonialCard
-                review="I can't speak highly enough about this company. From start to finish, they exceeded all expectations, delivering exceptional results in a timely manner. Look no further for top-notch service and reliability."
-                name="Jameson Patel"/>
-    </section>
+<section class="bg-light-gray py-20" id="reviews">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <div class="mb-10 text-center">
+      <p
+        class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-gray"
+      >
+        Real Reviews
+      </p>
+      <h2
+        class="mb-3 text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-my-black"
+      >
+        What clients are <span class="text-main">saying</span>.
+      </h2>
+      <p class="mx-auto max-w-[680px] text-[17px] leading-relaxed text-wolf-gray">
+        A few words from homeowners we've worked with around North Jersey.
+        Names and locations changed for privacy — written reviews coming to
+        Google soon.
+      </p>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {items.map((t) => <TestimonialCard {...t} />)}
+    </div>
+
+    <div
+      class="mx-auto mt-8 flex max-w-[700px] flex-col items-start gap-4 rounded-xl border border-rule bg-white p-4 text-sm text-dark-metallic sm:flex-row sm:items-center"
+    >
+      <span class="material-symbols-outlined text-[24px] text-main">
+        rate_review
+      </span>
+      <div class="flex-1 leading-relaxed">
+        <strong class="font-semibold text-my-black">Recently worked with us?</strong>
+        We're a young family business — your review on Google means the world.
+      </div>
+      <a
+        href="https://g.page/r/"
+        target="_blank"
+        rel="noopener"
+        class="rounded-md px-3.5 py-3 text-sm font-medium text-my-black hover:bg-light-gray"
+      >
+        Leave a review
+      </a>
+    </div>
+  </div>
 </section>

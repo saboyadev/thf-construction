@@ -1,0 +1,65 @@
+---
+const counties = [
+  { name: "Bergen", towns: "Wyckoff · Ridgewood · Hackensack" },
+  { name: "Passaic", towns: "Clifton · Wayne · Paterson" },
+  { name: "Hudson", towns: "Hoboken · Jersey City" },
+  { name: "Essex", towns: "Montclair · Nutley" },
+  { name: "Morris", towns: "Parsippany · Morristown" },
+];
+---
+
+<section class="bg-white py-20">
+  <div
+    class="mx-auto grid max-w-[1100px] items-center gap-14 px-6 lg:grid-cols-[1.1fr_1fr]"
+  >
+    <div>
+      <p class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-gray">
+        Service Area
+      </p>
+      <h2
+        class="mb-3 text-left text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-my-black"
+      >
+        Local crew. <span class="text-main">North Jersey</span> homes.
+      </h2>
+      <p class="mb-2 max-w-[480px] text-[17px] leading-relaxed text-wolf-gray">
+        Based in Garfield, NJ — most of our jobs are within 30 minutes of the
+        shop. We work in five North Jersey counties:
+      </p>
+      <div class="mt-5 grid gap-y-2 gap-x-4 sm:grid-cols-2">
+        {
+          counties.map(({ name, towns }) => (
+            <div class="flex items-start gap-2">
+              <span class="material-symbols-outlined mt-0.5 text-[18px] text-main">
+                place
+              </span>
+              <div class="text-[15px] font-medium text-dark-metallic">
+                {name}
+                <div class="text-[13px] font-normal text-wolf-gray">
+                  {towns}
+                </div>
+              </div>
+            </div>
+          ))
+        }
+        <div class="flex items-start gap-2">
+          <span class="material-symbols-outlined mt-0.5 text-[18px] text-main">
+            place
+          </span>
+          <div class="text-[15px] text-wolf-gray">
+            Outside this area?{" "}
+            <a href="tel:+12016860089" class="text-main hover:underline">
+              Call us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative min-h-[320px] overflow-hidden rounded-xl">
+      <img
+        src="/src/images/owner-portrait.png"
+        alt="Wider Saboya, owner of THF Construction, at the office"
+        class="h-full w-full rounded-xl object-cover"
+      />
+    </div>
+  </div>
+</section>

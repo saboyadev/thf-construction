@@ -1,14 +1,36 @@
 ---
-const {name} = Astro.props;
-const {description} = Astro.props;
-const {review} = Astro.props;
+const { name, town, review, rating = 5, img } = Astro.props;
+
+const initials = (name || "")
+  .split(" ")
+  .filter((s: string) => s[0] && /[A-Z]/.test(s[0]))
+  .slice(0, 2)
+  .map((s: string) => s[0])
+  .join("") || (name || "").slice(0, 1);
 ---
 
-<article class="bg-white p-3 shadow-md basis-[350px] flex-auto bg-light-gray">
-    <span class="material-symbols-outlined text-4xl text-orange-500">
-    format_quote
-    </span>
-    <p class="italic ml-5 mb-7">{review}</p>
-    <p class="ml-5 font-semibold">{name}</p>
-    {description && <p class="ml-5 ">{description}</p>}
+<article
+  class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_12px_28px_-10px_rgba(32,38,46,0.18),0_4px_8px_-4px_rgba(32,38,46,0.08)]"
+>
+  {img && <img src={img} alt={`${name} project`} class="h-[180px] w-full object-cover" />}
+  <div class="flex flex-1 flex-col gap-2.5 px-5 pb-3.5 pt-4">
+    <div class="flex gap-px text-sm leading-none text-main">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span>{i < rating ? "★" : "☆"}</span>
+      ))}
+    </div>
+    <p class="m-0 text-sm leading-relaxed text-dark-metallic">{review}</p>
+    <div class="-mx-5 mt-1.5 border-t border-light-gray"></div>
+    <div class="flex items-center gap-3 pt-3">
+      <div
+        class="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-light-gray text-[13px] font-bold text-main"
+      >
+        {initials}
+      </div>
+      <div class="flex flex-col leading-tight">
+        <span class="text-[13px] font-semibold text-my-black">{name}</span>
+        {town && <span class="text-xs text-gray">Homeowner · {town}</span>}
+      </div>
+    </div>
+  </div>
 </article>
