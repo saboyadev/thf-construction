@@ -1,13 +1,19 @@
 ---
-const {title} = Astro.props;
-const {link} = Astro.props;
-const {imageUrl} = Astro.props;
+const { title, sub, link, imageUrl } = Astro.props;
 ---
 
-<a class="basis-[190px] bg-white rounded-lg flex-initial shadow-lg" href={link}>
-    <img class="w-full" src={imageUrl}/>
-    <div class="flex flex-row justify-between p-5">
-        <p class="">{title}</p>
-        <span class='material-symbols-outlined'> arrow_forward</span>
-    </div>
+<a
+  class="group flex flex-col overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl"
+  href={link}
+>
+  <img
+    class="h-[220px] w-full object-cover"
+    src={imageUrl}
+    alt={title}
+    loading="lazy"
+  />
+  <div class="flex flex-col gap-1 px-6 py-6">
+    <p class="text-base font-semibold text-my-black">{title}</p>
+    {sub && <p class="text-[13px] text-wolf-gray">{sub}</p>}
+  </div>
 </a>

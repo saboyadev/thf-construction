@@ -1,0 +1,58 @@
+---
+const items = [
+  {
+    icon: "request_quote",
+    title: "Honest Written Quotes",
+    body: "Line-item pricing in plain English. No surprise change orders, no fine-print upcharges. The number we quote is the number you pay.",
+  },
+  {
+    icon: "home_work",
+    title: "Local & Reliable",
+    body: "Based in Garfield. Most of our work is within 30 minutes, most of our jobs come from neighbors. We show up when we say we will.",
+  },
+  {
+    icon: "handshake",
+    title: "You Meet The Owner",
+    body: "Wider walks every job, every week. The man who quotes your project is the man on the site — not a salesperson handing you off.",
+  },
+  {
+    icon: "event_available",
+    title: "Done On Time",
+    body: "Realistic schedules from day one and weekly updates. We finish when we said we'd finish, even when life on a job site doesn't go to plan.",
+  },
+];
+---
+
+<section class="bg-white py-20" id="why-us">
+  <div class="mx-auto max-w-[1100px] px-6">
+    <div class="mb-10 text-center">
+      <p
+        class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-gray"
+      >
+        Why THF
+      </p>
+      <h2
+        class="mb-3 text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-my-black"
+      >
+        The contractor your <span class="text-main">neighbor</span> recommends.
+      </h2>
+      <p class="mx-auto max-w-[680px] text-[17px] leading-relaxed text-wolf-gray">
+        "Trust, Honesty, and Family at our core" isn't a slogan — it's how we
+        run the job site, the schedule, and the invoice.
+      </p>
+    </div>
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        items.map(({ icon, title, body }) => (
+          <div class="flex flex-col items-center text-center">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-main-soft text-main">
+              <span class="material-symbols-outlined text-[26px]">{icon}</span>
+            </div>
+            <h3 class="mb-2 text-lg font-semibold text-my-black">{title}</h3>
+            <p class="text-[15px] leading-relaxed text-wolf-gray">{body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

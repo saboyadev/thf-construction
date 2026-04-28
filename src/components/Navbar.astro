@@ -4,18 +4,32 @@ import CTAButton from "./CallToActionBtn.astro";
 import HamburgerBtn from "./HamburgerBtn.astro";
 import Logo from "./Logo.astro";
 import NavbarLayout from "../layouts/NavbarLayout.astro";
+
+const phone = "+12016860089";
+const phoneDisplay = "(201) 686-0089";
 ---
 
 <NavbarLayout>
-  <div class="flex h-[100px] items-center gap-3 lg:justify-between">
+  <div class="flex h-[88px] items-center gap-3 lg:justify-between">
     <Logo />
     <NavLinks />
-    <CTAButton
-      content="Start Your Project"
-      icon="arrow_right_alt"
-      color="bg-main"
-      hidden="hidden"
-    />
-    <HamburgerBtn />
+    <div class="ml-auto flex items-center gap-3">
+      <a
+        href={`tel:${phone}`}
+        class="inline-flex items-center gap-2 rounded-md px-2 py-2 text-sm font-semibold text-my-black hover:bg-light-gray sm:px-3 sm:text-[15px]"
+        aria-label={`Call ${phoneDisplay}`}
+      >
+        <span class="material-symbols-outlined text-[22px] text-main">call</span>
+        <span class="hidden sm:inline">{phoneDisplay}</span>
+      </a>
+      <CTAButton
+        content="Free Estimate"
+        icon="arrow_right_alt"
+        color="bg-main"
+        hidden="hidden"
+        href="#book"
+      />
+      <HamburgerBtn />
+    </div>
   </div>
 </NavbarLayout>

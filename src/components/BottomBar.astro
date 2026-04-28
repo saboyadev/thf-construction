@@ -1,0 +1,31 @@
+---
+const phone = "+12016860089";
+---
+
+<div
+  class="fixed inset-x-0 bottom-0 z-[60] hidden border-t border-rule bg-white px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-2.5 shadow-[0_-8px_20px_-4px_rgba(0,0,0,0.14)] max-[720px]:block"
+>
+  <div class="grid grid-cols-3 gap-2">
+    <a
+      href={`tel:${phone}`}
+      class="inline-flex items-center justify-center gap-1.5 rounded-md bg-main px-2 py-3 text-sm font-semibold text-white"
+    >
+      <span class="material-symbols-outlined text-[18px]">call</span>
+      Call
+    </a>
+    <a
+      href={`sms:${phone}`}
+      class="inline-flex items-center justify-center gap-1.5 rounded-md bg-light-gray px-2 py-3 text-sm font-semibold text-my-black"
+    >
+      <span class="material-symbols-outlined text-[18px]">sms</span>
+      Text
+    </a>
+    <a
+      href="#book"
+      class="inline-flex items-center justify-center gap-1.5 rounded-md bg-my-black px-2 py-3 text-sm font-semibold text-white"
+    >
+      <span class="material-symbols-outlined text-[18px]">event</span>
+      Book
+    </a>
+  </div>
+</div>

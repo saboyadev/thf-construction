@@ -3,24 +3,26 @@ const { title } = Astro.props;
 import HeadTagContent from "../components/HeadTagContent.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import BottomBar from "../components/BottomBar.astro";
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>
       {title}
     </title>
     <HeadTagContent />
   </head>
-  <body class="bg-white relative">
+  <body class="bg-white relative pb-0 max-[720px]:pb-20">
     <div class="overlay hidden absolute top-0 left-0 w-full h-full bg-black/25 z-50" id=""></div>
     <Navbar />
     <slot />
     <Footer />
+    <BottomBar />
     <script src="../scripts/mobile-menu.js"></script>
     <script src="../scripts/types.js"></script>
   </body>

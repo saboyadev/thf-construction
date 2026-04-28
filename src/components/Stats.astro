@@ -1,0 +1,37 @@
+---
+const items = [
+  {
+    icon: "verified_user",
+    h: "Registered",
+    p: "NJ Home Improvement Contractor",
+  },
+  {
+    icon: "shield",
+    h: "Insured & Bonded",
+    p: "$1M general liability · $1M bond",
+  },
+  {
+    icon: "family_restroom",
+    h: "Family-Owned",
+    p: "Established June 2020",
+  },
+];
+---
+
+<section class="bg-my-black px-6 py-12 text-white">
+  <div class="mx-auto flex max-w-[1200px] flex-wrap items-center justify-center gap-x-14 gap-y-8">
+    {
+      items.map(({ icon, h, p }) => (
+        <div class="flex items-center gap-3.5">
+          <span class="material-symbols-outlined flex-shrink-0 text-[32px] text-main">
+            {icon}
+          </span>
+          <div>
+            <div class="text-[15px] font-bold tracking-wide text-white">{h}</div>
+            <div class="mt-0.5 text-[13px] text-gray">{p}</div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

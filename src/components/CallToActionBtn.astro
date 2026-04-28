@@ -1,22 +1,25 @@
 ---
-const { content, icon, color, hidden} = Astro.props;
+const { content, icon, color, hidden, href, id } = Astro.props;
+
+const baseClasses = [
+  "relative inline-flex items-center gap-x-1.5 rounded-md px-4 py-3 text-white shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 transition-opacity",
+  color,
+];
+const wrapperClasses = [hidden, "sm:block flex-shrink-0"];
 ---
-{ hidden ?
-  (<div class:list={[`${hidden}`, "sm:block flex-shrink-0"]}>
-    <button
-      type="button"
-      class:list={["relative inline-flex items-center gap-x-1.5 rounded-md px-4 py-3 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500", `${color}`]}
-    >
-      {content}
-      {icon && <span class="material-symbols-outlined text-[22px]">{icon}</span>}
-    </button>
-  </div>) : (<div class="sm:block flex-shrink-0">
-  <button
-    type="button"
-    class:list={["relative inline-flex items-center gap-x-1.5 rounded-md px-4 py-3 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500", `${color}`]}
-  >
-    {content}
-    {icon && <span class="material-symbols-outlined text-[22px]">{icon}</span>}
-  </button>
-</div>)
-}
+
+<div class:list={wrapperClasses}>
+  {
+    href ? (
+      <a id={id} href={href} class:list={baseClasses}>
+        {content}
+        {icon && <span class="material-symbols-outlined text-[22px]">{icon}</span>}
+      </a>
+    ) : (
+      <button id={id} type="button" class:list={baseClasses}>
+        {content}
+        {icon && <span class="material-symbols-outlined text-[22px]">{icon}</span>}
+      </button>
+    )
+  }
+</div>

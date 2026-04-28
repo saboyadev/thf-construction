@@ -1,21 +1,24 @@
 ---
-const links = ['Home', 'Services', 'Gallery', 'About', 'FAQ']
+const links = [
+  { label: "Services", href: "#services" },
+  { label: "Why Us", href: "#why-us" },
+  { label: "Projects", href: "#projects" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "FAQ", href: "#faq" },
+];
 ---
 
-<div class='hidden lg:flex lg:items-center lg:justify-center lg:flex-grow-1'>
-	<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-
-	{
-		links.map(link => (
-			<li class="list-none">
-          <a
-				  href='#'
-				  class=' text-metallic mx-2 px-3 py-2 box-border'
-				  aria-current='page'
-			  >
-				  {link}
-			  </a>
+<div class="hidden lg:flex lg:flex-grow-1 lg:items-center lg:justify-center">
+  {
+    links.map(({ label, href }) => (
+      <li class="list-none">
+        <a
+          href={href}
+          class="mx-2 box-border rounded-md px-3 py-2 text-[15px] font-medium text-metallic transition-colors hover:bg-light-gray hover:text-my-black"
+        >
+          {label}
+        </a>
       </li>
-		))
-	}
+    ))
+  }
 </div>
