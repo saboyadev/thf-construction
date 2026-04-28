@@ -17,6 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# Claude Code local settings
+.claude/
+
 # macOS-specific files
 .DS_Store
 /.idea/.idea.thf-construction.dir/.idea/.gitignore
