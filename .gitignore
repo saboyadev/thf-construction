@@ -27,3 +27,6 @@ pnpm-debug.log*
 /.idea/.idea.thf-construction.dir/.idea/indexLayout.xml
 /package-lock.json
 /.idea/.idea.thf-construction.dir/.idea/vcs.xml
+
+# Local Netlify folder
+.netlify
