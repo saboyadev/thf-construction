@@ -32,35 +32,33 @@ const items = [
 <section class="bg-light-gray py-20" id="reviews">
   <div class="mx-auto max-w-[1200px] px-6">
     <div class="mb-10 text-center">
-      <p
-        class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-gray"
-      >
+      <p class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-gray">
         Real Reviews
       </p>
-      <h2
-        class="mb-3 text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-my-black"
-      >
+      <h2 class="mb-3 text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-my-black">
         What clients are <span class="text-main">saying</span>.
       </h2>
       <p class="mx-auto max-w-[680px] text-[17px] leading-relaxed text-wolf-gray">
-        A few words from homeowners we've worked with around North Jersey.
-        Names and locations changed for privacy — written reviews coming to
-        Google soon.
+        A few words from homeowners we've worked with around North Jersey. Names
+        and locations changed for privacy — written reviews coming to Google
+        soon.
       </p>
     </div>
 
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {items.map((t) => <TestimonialCard {...t} />)}
+      {items.map((t) => (
+        <TestimonialCard {...t} />
+      ))}
     </div>
 
-    <div
-      class="mx-auto mt-8 flex max-w-[700px] flex-col items-start gap-4 rounded-xl border border-rule bg-white p-4 text-sm text-dark-metallic sm:flex-row sm:items-center"
-    >
+    <div class="mx-auto mt-8 flex max-w-[700px] flex-col items-start gap-4 rounded-xl border border-rule bg-white p-4 text-sm text-dark-metallic sm:flex-row sm:items-center">
       <span class="material-symbols-outlined text-[24px] text-main">
         rate_review
       </span>
       <div class="flex-1 leading-relaxed">
-        <strong class="font-semibold text-my-black">Recently worked with us?</strong>
+        <strong class="font-semibold text-my-black">
+          Recently worked with us?
+        </strong>{" "}
         We're a young family business — your review on Google means the world.
       </div>
       <a
