@@ -36,8 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		const dy = y - lastY
 		const menuOpen = mobileMenuButton?.getAttribute('aria-expanded') === 'true'
 
-		// Near the top: let the nav scroll naturally with the hero
-		if (y <= nav.offsetHeight) {
+		// Near the top: let the nav scroll naturally with the hero. The placeholder's
+		// offset accounts for the utility bar that sits above the nav on larger screens.
+		if (y <= placeholder.offsetTop + nav.offsetHeight) {
 			if (nav.classList.contains('fixed')) setFixed(false)
 			lastY = y
 			return

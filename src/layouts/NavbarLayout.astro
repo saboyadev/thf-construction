@@ -1,7 +1,10 @@
 ---
 import MobileMenu from "../components/MobileMenu.astro";
+import TopBar from "../components/TopBar.astro";
 ---
 
+<!-- Kept outside [data-nav] so it scrolls away and never joins the fixed nav -->
+<TopBar />
 <div data-nav-placeholder>
   <nav
     data-nav
