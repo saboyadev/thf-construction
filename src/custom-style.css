@@ -85,12 +85,20 @@
   }
 }
 
-/* Riveted steel plate for the mobile menu button */
+/* Riveted steel plate for the mobile menu button. Colors are variables so the
+   dark-nav variant below can swap in a lighter alloy. */
 @utility steel-plate {
+  --plate-top: #454d57;
+  --plate-mid: var(--color-dark-metallic);
+  --plate-bottom: var(--color-my-black);
+  --plate-edge: rgb(255 255 255 / 0.1);
+  --plate-bevel: rgb(255 255 255 / 0.14);
+  --rivet-head: #c5cad1;
+  --rivet-ring: #5a626c;
   --rivet: radial-gradient(
     circle,
-    #c5cad1 0 1px,
-    #5a626c 1.4px,
+    var(--rivet-head) 0 1px,
+    var(--rivet-ring) 1.4px,
     rgb(0 0 0 / 0.35) 2px,
     transparent 2.6px
   );
@@ -98,9 +106,9 @@
     var(--rivet), var(--rivet), var(--rivet), var(--rivet),
     linear-gradient(
       180deg,
-      #454d57 0%,
-      var(--color-dark-metallic) 40%,
-      var(--color-my-black) 100%
+      var(--plate-top) 0%,
+      var(--plate-mid) 40%,
+      var(--plate-bottom) 100%
     );
   background-origin: border-box; /* extend the gradient under the 1px border so nothing shows through */
   background-repeat: no-repeat;
@@ -116,11 +124,22 @@
     4px calc(100% - 4px),
     calc(100% - 4px) calc(100% - 4px),
     0 0;
-  border: 1px solid rgb(255 255 255 / 0.1);
+  border: 1px solid var(--plate-edge);
   box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.14),
+    inset 0 1px 0 var(--plate-bevel),
     inset 0 -1px 0 rgb(0 0 0 / 0.45),
     0 2px 6px rgb(0 0 0 / 0.35);
+}
+
+/* Lighter alloy so the plate stands off the dark scrolled nav */
+@utility steel-plate-light {
+  --plate-top: #7c8794;
+  --plate-mid: var(--color-metallic);
+  --plate-bottom: #454d57;
+  --plate-edge: rgb(255 255 255 / 0.2);
+  --plate-bevel: rgb(255 255 255 / 0.28);
+  --rivet-head: #e6e9ec;
+  --rivet-ring: #3a424b;
 }
 
 @utility bottom-box-shadow {
