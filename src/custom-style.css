@@ -102,6 +102,7 @@
       var(--color-dark-metallic) 40%,
       var(--color-my-black) 100%
     );
+  background-origin: border-box; /* extend the gradient under the 1px border so nothing shows through */
   background-repeat: no-repeat;
   background-size:
     6px 6px,
