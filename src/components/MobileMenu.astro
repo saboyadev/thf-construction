@@ -11,15 +11,11 @@ const phoneDisplay = "(201) 686-0089";
 ---
 
 <div class="absolute hidden w-full" id="mobile-menu">
-  <div class="bg-linear-to-b from-main to-[#f7ad78]">
+  <div class="bg-linear-to-b from-main to-main-light">
     <div class="space-y-1 pb-6">
       {links.map(({ label, href }) => (
         <li class="list-none py-3 pl-4 drop-shadow-2xl sm:pl-6">
-          <a
-            href={href}
-            class="text-xl font-semibold text-light-gray"
-            aria-current="page"
-          >
+          <a href={href} class="text-xl font-semibold text-light-gray">
             {label}
           </a>
         </li>
