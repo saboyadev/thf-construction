@@ -16,7 +16,7 @@ const phoneDisplay = "(201) 686-0089";
     <div class="ml-auto flex items-center gap-3">
       <a
         href={`tel:${phone}`}
-        class="inline-flex items-center gap-2 rounded-md px-2 py-2 text-sm font-semibold text-my-black hover:bg-light-gray sm:px-3 sm:text-[15px]"
+        class="hidden items-center gap-2 rounded-md px-2 py-2 text-sm font-semibold text-my-black hover:bg-light-gray sm:px-3 sm:text-[15px] min-[721px]:inline-flex"
         aria-label={`Call ${phoneDisplay}`}
       >
         <span class="material-symbols-outlined text-[22px] text-main">
@@ -28,7 +28,7 @@ const phoneDisplay = "(201) 686-0089";
         content="Free Consultation"
         icon="arrow_right_alt"
         color="bg-main"
-        hidden="hidden"
+        hidden="hidden min-[721px]:block"
         href="#book"
       />
       <HamburgerBtn />
