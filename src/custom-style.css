@@ -4,7 +4,7 @@
   /* Brand orange (hue 24°, full saturation) and its lightness steps */
   --color-main: #ff6603; /* L50 — fills, icons, large accent words, buttons */
   --color-main-hover: #e65a00; /* L45 — hover */
-  --color-main-deep: #c24c00; /* L38 — pressed state; also the lightest shade that passes AA for small text on white */
+  --color-main-deep: #c24c00; /* L38 — pressed state only (never used as a visible text/fill color) */
   --color-main-light: #ffa870; /* L72 — gradient end */
   --color-main-soft: #ffe0cc; /* L90 — tints, focus rings */
   --color-my-black: #20262e;

@@ -34,7 +34,7 @@ const phoneDisplay = "(201) 686-0089";
         </li>
       ))}
     </ul>
-    <div class="mt-3 border-t border-rule px-1 pt-4">
+    <div class="mt-3 space-y-2.5 border-t border-rule px-1 pt-4">
       <a
         href="#book"
         class="flex w-full items-center justify-center gap-2 rounded-xl bg-main px-4 py-3.5 text-base font-semibold text-my-black transition-colors hover:bg-main-hover active:bg-main-deep"
@@ -44,15 +44,18 @@ const phoneDisplay = "(201) 686-0089";
           arrow_right_alt
         </span>
       </a>
-      <p class="mt-3 text-center text-sm text-wolf-gray">
-        or call{" "}
-        <a
-          href={`tel:${phone}`}
-          class="font-semibold text-main-deep hover:underline"
+      <a
+        href={`tel:${phone}`}
+        class="flex w-full items-center justify-center gap-2 rounded-xl border border-rule bg-white px-4 py-3.5 text-base font-semibold text-my-black transition-colors hover:bg-light-gray active:bg-light-gray"
+      >
+        <span
+          class="material-symbols-outlined text-[20px] text-main"
+          aria-hidden="true"
         >
-          {phoneDisplay}
-        </a>
-      </p>
+          call
+        </span>
+        Call {phoneDisplay}
+      </a>
     </div>
   </div>
 </div>
