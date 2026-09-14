@@ -24,10 +24,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			placeholder.style.height = `${nav.offsetHeight}px`
 			nav.classList.remove('relative')
 			nav.classList.add('fixed', '-translate-y-full')
+			nav.dataset.scrolled = '' // flips the nav (and its menu) to the dark theme
 		} else {
 			placeholder.style.height = ''
 			nav.classList.remove('fixed', '-translate-y-full')
 			nav.classList.add('relative')
+			delete nav.dataset.scrolled
 		}
 		void nav.offsetHeight // force reflow so the class swap lands before transitions resume
 		nav.classList.remove('transition-none')
