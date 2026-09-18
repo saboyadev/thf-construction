@@ -26,41 +26,29 @@ const faqs = [
 <section class="bg-white py-20" id="faq">
   <div class="mx-auto max-w-[820px] px-6">
     <div class="mb-10 text-center">
-      <p
-        class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-gray"
-      >
+      <p class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-gray">
         Common Questions
       </p>
-      <h2
-        class="text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-my-black"
-      >
+      <h2 class="text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-my-black">
         Things homeowners ask <span class="text-main">first</span>.
       </h2>
     </div>
 
     <div>
-      {
-        faqs.map(({ q, a }, i) => (
-          <details
-            class="group border-t border-my-black/10 [&:last-child]:border-b"
-            open={i === 0}
-          >
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between gap-4 py-6 text-[17px] font-semibold text-my-black [&::-webkit-details-marker]:hidden"
-            >
-              <span>{q}</span>
-              <span
-                class="material-symbols-outlined text-[24px] text-main transition-transform duration-200 group-open:rotate-45"
-              >
-                add
-              </span>
-            </summary>
-            <div class="pb-6 text-[15px] leading-relaxed text-wolf-gray">
-              {a}
-            </div>
-          </details>
-        ))
-      }
+      {faqs.map(({ q, a }, i) => (
+        <details
+          class="group border-t border-my-black/10 last:border-b"
+          open={i === 0}
+        >
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-6 text-[17px] font-semibold text-my-black [&::-webkit-details-marker]:hidden">
+            <span>{q}</span>
+            <span class="material-symbols-outlined text-[24px] text-main transition-transform duration-200 group-open:rotate-45">
+              add
+            </span>
+          </summary>
+          <div class="pb-6 text-[15px] leading-relaxed text-wolf-gray">{a}</div>
+        </details>
+      ))}
     </div>
   </div>
 </section>

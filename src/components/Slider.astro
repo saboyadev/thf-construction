@@ -1,19 +1,24 @@
 ---
-import {Image} from 'astro:assets'
-import imageList from '../data/images.json'
-const doubledList = imageList.concat(imageList)
+import { Image } from "astro:assets";
+import imageList from "../data/images.json";
+const doubledList = imageList.concat(imageList);
 ---
 
 <!-- <div class='slider bg-egg-white ml-auto w-3/5 pt-4'> -->
-<div class='overflow-hidden relative bg-light-gray sm:bg-egg-white pt-4 sm:py-0 sm:ml-auto sm:w-3/5 lg:max-xl:w-4/5' >
-	<!-- <div class='slide-track flex flex-col flex-wrap h-[556px] justify-between'> -->
-	<div class='animate-img-slider flex flex-col flex-wrap h-48 sm:h-[556px] sm:justify-between'>
-		{
-			doubledList.map(image => (
-				<div class='rounded-md overflow-hidden relative mx-2 h-full w-48 sm:h-[270px] sm:w-[380px]'>
-					<Image class="bg-cover bg-center absolute t-0 l-0 h-full w-full object-cover" src={image} alt='' width={380} height={270} loading="eager" />
-				</div>
-			))
-		}
-	</div>
+<div class="overflow-hidden relative bg-light-gray sm:bg-egg-white pt-4 sm:py-0 sm:ml-auto sm:w-3/5 lg:max-xl:w-4/5">
+  <!-- <div class='slide-track flex flex-col flex-wrap h-[556px] justify-between'> -->
+  <div class="animate-img-slider flex flex-col flex-wrap h-48 sm:h-[556px] sm:justify-between">
+    {doubledList.map((image) => (
+      <div class="rounded-md overflow-hidden relative mx-2 h-full w-48 sm:h-[270px] sm:w-[380px]">
+        <Image
+          class="bg-cover bg-center absolute t-0 l-0 h-full w-full object-cover"
+          src={image}
+          alt=""
+          width={380}
+          height={270}
+          loading="eager"
+        />
+      </div>
+    ))}
+  </div>
 </div>

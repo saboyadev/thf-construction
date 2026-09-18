@@ -1,6 +1,94 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-main: #f58634;
+  --color-main-hover: #e0701f;
+  --color-main-soft: #fbe3d0;
+  --color-my-black: #20262e;
+  --color-dark-metallic: #333b44;
+  --color-metallic: #5f6773;
+  --color-wolf-gray: #757980;
+  --color-gray: #929ca6;
+  --color-light-gray: #f0f1f2;
+  --color-egg-white: #f7f9fa;
+  --color-rule: #d7d8d9;
+
+  --animate-img-slider: img-slider 150s linear infinite;
+
+  @keyframes img-slider {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-3900px);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility title-prefix {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.35rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+@utility title {
+  line-height: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.05rem;
+  color: #20262e;
+}
+
+@utility clip-path {
+  @media (min-width: 640px) {
+    /* sm max-768px*/
+    clip-path: polygon(0 0, 600px 0%, 350px 100%, 0% 100%);
+  }
+
+  @media (min-width: 769px) {
+    /* md max-1199*/
+    clip-path: polygon(0 0, 650px 0%, 400px 100%, 0% 100%);
+  }
+
+  @media (min-width: 1200px) {
+    /* large screens*/
+    clip-path: polygon(0 0, 750px 0%, 470px 100%, 0% 100%);
+  }
+}
+
+@utility inner-hero-content {
+  @media (min-width: 1200px) {
+    left: calc(50% - 580px);
+  }
+}
+
+@utility bottom-box-shadow {
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+}
+
+@utility bg-extension {
+  width: calc(50% - 280px);
+}
 
 @layer base {
   body {
@@ -23,59 +111,6 @@
     font-feature-settings: "liga";
     -webkit-font-feature-settings: "liga";
     font-variation-settings: "opsz" 24, "wght" 400, "FILL" 0, "GRAD" 0;
-  }
-}
-
-@layer components {
-  .title-prefix {
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 0.35rem;
-    font-weight: 500;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-  }
-
-  .title {
-    line-height: 2.8rem;
-    font-weight: 700;
-    letter-spacing: -0.05rem;
-    color: #20262e;
-  }
-
-  @media (min-width: 640px) {
-    /* sm max-768px*/
-    .clip-path {
-      clip-path: polygon(0 0, 600px 0%, 350px 100%, 0% 100%);
-    }
-  }
-
-  @media (min-width: 769px) {
-    /* md max-1199*/
-    .clip-path {
-      clip-path: polygon(0 0, 650px 0%, 400px 100%, 0% 100%);
-    }
-  }
-
-  @media (min-width: 1200px) {
-    /* large screens*/
-    .clip-path {
-      clip-path: polygon(0 0, 750px 0%, 470px 100%, 0% 100%);
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .inner-hero-content {
-      left: calc(50% - 580px);
-    }
-  }
-
-  .bottom-box-shadow {
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-  }
-
-  .bg-extension {
-    width: calc(50% - 280px);
   }
 }
 

@@ -8,17 +8,15 @@ const links = [
 ];
 ---
 
-<div class="hidden lg:flex lg:flex-grow-1 lg:items-center lg:justify-center">
-  {
-    links.map(({ label, href }) => (
-      <li class="list-none">
-        <a
-          href={href}
-          class="mx-2 box-border rounded-md px-3 py-2 text-[15px] font-medium text-metallic transition-colors hover:bg-light-gray hover:text-my-black"
-        >
-          {label}
-        </a>
-      </li>
-    ))
-  }
+<div class="hidden lg:flex lg:grow lg:items-center lg:justify-center">
+  {links.map(({ label, href }) => (
+    <li class="list-none">
+      <a
+        href={href}
+        class="mx-2 box-border rounded-md px-3 py-2 text-[15px] font-medium text-metallic transition-colors hover:bg-light-gray hover:text-my-black"
+      >
+        {label}
+      </a>
+    </li>
+  ))}
 </div>

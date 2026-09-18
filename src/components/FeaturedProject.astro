@@ -4,16 +4,12 @@ const after = "/images/carousel/02-slide.jpg";
 ---
 
 <section class="bg-egg-white py-20" id="projects">
-  <div
-    class="mx-auto grid max-w-[1200px] items-center gap-12 px-6 lg:grid-cols-[1fr_1.3fr]"
-  >
+  <div class="mx-auto grid max-w-[1200px] items-center gap-12 px-6 lg:grid-cols-[1fr_1.3fr]">
     <div>
       <p class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-main">
         Featured Project
       </p>
-      <h2
-        class="mb-4 text-[clamp(28px,3.6vw,36px)] font-bold leading-tight tracking-[-0.04em] text-my-black"
-      >
+      <h2 class="mb-4 text-[clamp(28px,3.6vw,36px)] font-bold leading-tight tracking-[-0.04em] text-my-black">
         The Patel kitchen, top-to-bottom in 6 weeks.
       </h2>
       <p class="mb-2 max-w-[480px] text-[17px] leading-relaxed text-wolf-gray">
@@ -22,25 +18,27 @@ const after = "/images/carousel/02-slide.jpg";
         year. Drag the slider to see the transformation.
       </p>
       <div class="mt-5 flex flex-wrap gap-2">
-        {
-          ["Wyckoff, NJ", "$72,000", "6 weeks", "Permits handled"].map((chip) => (
+        {["Wyckoff, NJ", "$72,000", "6 weeks", "Permits handled"].map(
+          (chip) => (
             <span class="rounded-full border border-rule bg-white px-3 py-1.5 text-xs font-medium text-metallic">
               {chip}
             </span>
-          ))
-        }
+          ),
+        )}
       </div>
       <a
         href="#book"
-        class="mt-6 inline-flex items-center gap-1.5 rounded-md bg-dark-metallic px-5 py-4 text-base font-semibold text-white shadow-sm hover:opacity-90"
+        class="mt-6 inline-flex items-center gap-1.5 rounded-md bg-dark-metallic px-5 py-4 text-base font-semibold text-white shadow-xs hover:opacity-90"
       >
         Start Your Project
-        <span class="material-symbols-outlined text-[20px]">arrow_right_alt</span>
+        <span class="material-symbols-outlined text-[20px]">
+          arrow_right_alt
+        </span>
       </a>
     </div>
 
     <div
-      class="ba-compare relative aspect-[16/10] touch-none overflow-hidden rounded-lg bg-black/30 shadow-2xl select-none"
+      class="ba-compare relative aspect-16/10 touch-none overflow-hidden rounded-lg bg-black/30 shadow-2xl select-none"
       data-pos="50"
     >
       <img
@@ -54,21 +52,17 @@ const after = "/images/carousel/02-slide.jpg";
         class="ba-compare__after pointer-events-none absolute inset-0 h-full w-full object-cover"
         style="clip-path: inset(0 0 0 50%);"
       />
-      <span
-        class="absolute left-3.5 top-3.5 rounded bg-black/70 px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white"
-        >Before</span
-      >
-      <span
-        class="absolute right-3.5 top-3.5 rounded bg-black/70 px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white"
-        >After</span
-      >
+      <span class="absolute left-3.5 top-3.5 rounded-sm bg-black/70 px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
+        Before
+      </span>
+      <span class="absolute right-3.5 top-3.5 rounded-sm bg-black/70 px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
+        After
+      </span>
       <div
         class="ba-compare__handle pointer-events-none absolute bottom-0 top-0 w-0.5 bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.15)]"
         style="left: 50%; transform: translateX(-1px);"
       >
-        <div
-          class="absolute left-1/2 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-my-black shadow-lg"
-        >
+        <div class="absolute left-1/2 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-my-black shadow-lg">
           <span class="material-symbols-outlined text-[22px]">drag_handle</span>
         </div>
       </div>
@@ -84,7 +78,10 @@ const after = "/images/carousel/02-slide.jpg";
     let dragging = false;
     const setPos = (clientX: number) => {
       const r = root.getBoundingClientRect();
-      const p = Math.max(0, Math.min(100, ((clientX - r.left) / r.width) * 100));
+      const p = Math.max(
+        0,
+        Math.min(100, ((clientX - r.left) / r.width) * 100),
+      );
       after.style.clipPath = `inset(0 0 0 ${p}%)`;
       handle.style.left = `${p}%`;
     };
@@ -99,17 +96,15 @@ const after = "/images/carousel/02-slide.jpg";
     window.addEventListener("mouseup", () => {
       dragging = false;
     });
-    root.addEventListener(
-      "touchstart",
-      (e) => onDown(e.touches[0].clientX),
-      { passive: true }
-    );
+    root.addEventListener("touchstart", (e) => onDown(e.touches[0].clientX), {
+      passive: true,
+    });
     root.addEventListener(
       "touchmove",
       (e) => {
         if (dragging) setPos(e.touches[0].clientX);
       },
-      { passive: true }
+      { passive: true },
     );
     root.addEventListener("touchend", () => {
       dragging = false;
