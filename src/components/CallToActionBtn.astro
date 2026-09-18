@@ -1,12 +1,21 @@
 ---
 const { content, icon, color, hidden, href, id, size = "md" } = Astro.props;
 
+// Orange buttons use dark text (white on the brand orange fails WCAG AA) and
+// step through the darker orange tokens; dark buttons keep white text and a
+// simple opacity hover.
+const stateClasses =
+  color === "bg-main"
+    ? "text-my-black hover:bg-main-hover active:bg-main-deep"
+    : "text-white hover:opacity-90";
+
 const baseClasses = [
-  "relative inline-flex items-center gap-x-1.5 rounded-md text-white shadow-xs hover:opacity-90 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 transition-opacity",
+  "relative inline-flex items-center gap-x-1.5 rounded-md shadow-xs transition-[background-color,opacity] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main",
   size === "lg"
     ? "px-5 py-4 text-base font-semibold sm:px-6 sm:py-4 sm:text-lg"
     : "px-4 py-3 text-sm sm:text-base",
   color,
+  stateClasses,
 ];
 const wrapperClasses = [hidden, "shrink-0"];
 ---

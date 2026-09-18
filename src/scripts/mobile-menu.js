@@ -1,30 +1,31 @@
-document.addEventListener('DOMContentLoaded', function () {
-	console.log('Script loaded!')
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileMenuButton = document.querySelector(".mobile-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const hamburgerIcon = document.querySelector(".hamburger");
+  const closeIcon = document.querySelector(".close");
+  const overlay = document.querySelector(".overlay");
+  if (!mobileMenuButton || !mobileMenu) return;
 
-	// Select the button that will trigger the mobile menu
-	const mobileMenuButton = document.querySelector('.mobile-btn')
+  const setOpen = (open) => {
+    mobileMenu.classList.toggle("hidden", !open);
+    hamburgerIcon.classList.toggle("hidden", open);
+    closeIcon.classList.toggle("hidden", !open);
+    overlay.classList.toggle("hidden", !open);
+    mobileMenuButton.setAttribute("aria-expanded", String(open));
+  };
+  const isOpen = () =>
+    mobileMenuButton.getAttribute("aria-expanded") === "true";
 
-	// Select the mobile menu itself
-	const mobileMenu = document.getElementById('mobile-menu')
+  mobileMenuButton.addEventListener("click", () => setOpen(!isOpen()));
 
-	// Select the hamburger icon and the close icon
-	const hamburgerIcon = document.querySelector('.hamburger')
-	const closeIcon = document.querySelector('.close')
-
-	const overlay = document.querySelector('.overlay')
-
-	// Add a click event listener to the mobile menu button
-	mobileMenuButton.addEventListener('click', () => {
-		// Toggle the mobile menu's visibility
-		mobileMenu.classList.toggle('hidden')
-
-		// Toggle the visibility of the hamburger and close icons
-		hamburgerIcon.classList.toggle('hidden')
-		closeIcon.classList.toggle('hidden')
-		overlay.classList.toggle('hidden')
-
-		// Update aria-expanded attribute
-		const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true'
-		mobileMenuButton.setAttribute('aria-expanded', !expanded)
-	})
-})
+  // Close when a link is chosen (anchors scroll the same page, so the sheet
+  // would otherwise stay open over the target section), when the dimmed page
+  // is tapped, or on Escape
+  mobileMenu.addEventListener("click", (e) => {
+    if (e.target.closest("a")) setOpen(false);
+  });
+  overlay.addEventListener("click", () => setOpen(false));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isOpen()) setOpen(false);
+  });
+});

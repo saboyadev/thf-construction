@@ -1,9 +1,12 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
-  --color-main: #f58634;
-  --color-main-hover: #e0701f;
-  --color-main-soft: #fbe3d0;
+  /* Brand orange (hue 24°, full saturation) and its lightness steps */
+  --color-main: #ff6603; /* L50 — fills, icons, large accent words, buttons */
+  --color-main-hover: #e65a00; /* L45 — hover */
+  --color-main-deep: #c24c00; /* L38 — pressed state only (never used as a visible text/fill color) */
+  --color-main-light: #ffa870; /* L72 — gradient end */
+  --color-main-soft: #ffe0cc; /* L90 — tints, focus rings */
   --color-my-black: #20262e;
   --color-dark-metallic: #333b44;
   --color-metallic: #5f6773;
@@ -56,7 +59,7 @@
   line-height: 2.8rem;
   font-weight: 700;
   letter-spacing: -0.05rem;
-  color: #20262e;
+  color: var(--color-my-black);
 }
 
 @utility clip-path {
@@ -110,7 +113,11 @@
   .material-symbols-outlined {
     font-feature-settings: "liga";
     -webkit-font-feature-settings: "liga";
-    font-variation-settings: "opsz" 24, "wght" 400, "FILL" 0, "GRAD" 0;
+    font-variation-settings:
+      "opsz" 24,
+      "wght" 400,
+      "FILL" 0,
+      "GRAD" 0;
   }
 }
 
