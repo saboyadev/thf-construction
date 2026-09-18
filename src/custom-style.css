@@ -1,20 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand orange (hue 24°, full saturation) and its lightness steps */
-  --color-main: #ff6603; /* L50 — fills, icons, large accent words, buttons */
-  --color-main-hover: #e65a00; /* L45 — hover */
-  --color-main-deep: #c24c00; /* L38 — pressed state only (never used as a visible text/fill color) */
-  --color-main-light: #ffa870; /* L72 — gradient end */
-  --color-main-soft: #ffe0cc; /* L90 — tints, focus rings */
-  --color-my-black: #20262e;
-  --color-dark-metallic: #333b44;
-  --color-metallic: #5f6773;
-  --color-wolf-gray: #757980;
-  --color-gray: #929ca6;
-  --color-light-gray: #f0f1f2;
-  --color-egg-white: #f7f9fa;
-  --color-rule: #d7d8d9;
+  /* THF Orange — architectural/burnt orange accent (hue ~22°). Fills, icons,
+     buttons, and large accent words on white. As text it is 3.1:1 on white,
+     so small orange text and any orange text on tinted surfaces use the
+     darker steps below. */
+  --color-main: #e86f2a;
+  --color-main-hover: #d45f20; /* large (≥24px / ≥19px bold) orange text on egg-white or light-gray, where main misses 3:1 */
+  --color-main-deep: #bc4e17; /* small orange text or icons on light surfaces (≥4.5:1 on white and egg-white) */
+  --color-main-light: #f3a071; /* orange for text on charcoal (7.4:1) / gradient end — currently unused */
+  --color-main-soft: #fce6da; /* tints, icon chips, focus rings */
+
+  /* THF Charcoal — primary dark. Headings, dark sections, button text on orange;
+     primary-button hover surface and focus-ring color on light surfaces (white
+     plays those roles on charcoal). */
+  --color-my-black: #1d252d;
+
+  /* Neutrals — cool gray scale. Contrast is against white unless noted. */
+  --color-dark-metallic: #343d45; /* form labels, emphasized body, secondary dark buttons (11:1) */
+  --color-metallic: #626d76; /* muted text on light surfaces: body copy, nav links, eyebrows, captions, chips (5.3:1; 4.7:1 on light-gray) */
+  --color-gray: #9da5ab; /* muted text on DARK surfaces only (6.2:1 on charcoal); 2.5:1 on white, so not for text on light */
+  --color-light-gray: #eff1f2; /* light surface and hover fill; also light text on charcoal */
+  --color-egg-white: #f8f8f6; /* warm off-white surface; off-white text on charcoal */
+  --color-rule: #d9dde0; /* hairlines and decorative, non-interactive borders (1.4:1) */
+  --color-rule-strong: #8a929a; /* form-control and outlined-button boundaries — 3.15:1 on white (WCAG 1.4.11); 2.97:1 on egg-white, so keep controls on white */
 
   --animate-img-slider: img-slider 150s linear infinite;
 
@@ -30,8 +39,8 @@
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
+  so we've added these compatibility styles; the default now points at the
+  design-system hairline token rather than Tailwind's stock gray-200.
 
   If we ever want to remove these styles, we need to add an explicit border
   color utility to any element that depends on these defaults.
@@ -42,7 +51,7 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+    border-color: var(--color-rule, currentcolor);
   }
 }
 
@@ -85,7 +94,9 @@
   }
 }
 
-/* Riveted steel plate for the mobile menu button. Colors are variables so the
+/* LEGACY — riveted steel plate for the mobile menu button (HamburgerBtn.astro).
+   The alloy/rivet hexes below are not part of the brand palette; remove both
+   utilities when the menu button is redesigned. Colors are variables so the
    dark-nav variant below can swap in a lighter alloy. */
 @utility steel-plate {
   --plate-top: #454d57;

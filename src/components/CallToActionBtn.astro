@@ -2,15 +2,17 @@
 const { content, icon, color, hidden, href, id, size = "md" } = Astro.props;
 
 // Orange buttons use dark text (white on the brand orange fails WCAG AA) and
-// step through the darker orange tokens; dark buttons keep white text and a
-// simple opacity hover.
+// invert to charcoal/white on hover (white/charcoal inside the scrolled dark
+// nav, where charcoal would vanish); pressed steps to dark-metallic. Dark
+// buttons keep white text and a simple opacity hover. Focus is an offset
+// outline in the surface's text color: charcoal on light, white on charcoal.
 const stateClasses =
   color === "bg-main"
-    ? "text-my-black hover:bg-main-hover active:bg-main-deep"
+    ? "text-my-black hover:bg-my-black hover:text-white active:bg-dark-metallic active:text-white group-data-scrolled:hover:bg-white group-data-scrolled:hover:text-my-black group-data-scrolled:active:bg-light-gray group-data-scrolled:active:text-my-black"
     : "text-white hover:opacity-90";
 
 const baseClasses = [
-  "relative inline-flex items-center gap-x-1.5 rounded-md shadow-xs transition-[background-color,opacity] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main",
+  "relative inline-flex items-center gap-x-1.5 rounded-md shadow-xs transition-[background-color,color,opacity] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-black group-data-scrolled:focus-visible:outline-white",
   size === "lg"
     ? "px-5 py-4 text-base font-semibold sm:px-6 sm:py-4 sm:text-lg"
     : "px-4 py-3 text-sm font-semibold sm:text-base",

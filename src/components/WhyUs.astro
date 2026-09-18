@@ -26,13 +26,13 @@ const items = [
 <section class="bg-white py-10 sm:py-20" id="why-us">
   <div class="mx-auto max-w-[1100px] px-6">
     <div class="mb-10 text-center">
-      <p class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-gray">
+      <p class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-metallic">
         Why THF
       </p>
       <h2 class="mb-3 text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-my-black">
         The contractor your <span class="text-main">neighbor</span> recommends
       </h2>
-      <p class="mx-auto max-w-[680px] text-[17px] leading-relaxed text-wolf-gray">
+      <p class="mx-auto max-w-[680px] text-[17px] leading-relaxed text-metallic">
         "Trust, Honesty, and Family at our core" isn't a slogan — it's how we
         run the job site, the schedule, and the invoice.
       </p>
@@ -40,11 +40,11 @@ const items = [
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
       {items.map(({ icon, title, body }) => (
         <div class="flex flex-col items-center text-center">
-          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-main-soft text-main">
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-main-soft text-main-deep">
             <span class="material-symbols-outlined text-[26px]">{icon}</span>
           </div>
           <h3 class="mb-2 text-lg font-semibold text-my-black">{title}</h3>
-          <p class="text-[15px] leading-relaxed text-wolf-gray">{body}</p>
+          <p class="text-[15px] leading-relaxed text-metallic">{body}</p>
         </div>
       ))}
     </div>
