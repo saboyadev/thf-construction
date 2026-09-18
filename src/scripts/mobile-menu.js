@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
   const mobileMenuButton = document.querySelector(".mobile-btn");
   const mobileMenu = document.getElementById("mobile-menu");
-  const hamburgerIcon = document.querySelector(".hamburger");
-  const closeIcon = document.querySelector(".close");
   const overlay = document.querySelector(".overlay");
   if (!mobileMenuButton || !mobileMenu) return;
 
   const setOpen = (open) => {
     mobileMenu.classList.toggle("hidden", !open);
-    hamburgerIcon.classList.toggle("hidden", open);
-    closeIcon.classList.toggle("hidden", !open);
     overlay.classList.toggle("hidden", !open);
     mobileMenuButton.setAttribute("aria-expanded", String(open));
+    mobileMenuButton.setAttribute(
+      "aria-label",
+      open ? "Close menu" : "Open menu",
+    );
   };
   const isOpen = () =>
     mobileMenuButton.getAttribute("aria-expanded") === "true";
