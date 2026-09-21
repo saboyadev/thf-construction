@@ -98,7 +98,7 @@ const email = "wider@thfconstructionnj.com";
       <h3 class="mb-1 text-xl font-bold tracking-tight text-my-black">
         Book a free in-home consultation
       </h3>
-      <p class="mb-6 text-sm text-wolf-gray">
+      <p class="mb-6 text-sm text-metallic">
         Takes 1 minute. Wider usually calls back the same day.
       </p>
 
@@ -108,7 +108,7 @@ const email = "wider@thfconstructionnj.com";
             for="f-name"
             class="mb-1.5 text-[13px] font-medium text-dark-metallic"
           >
-            Your name<span class="ml-0.5 text-main">*</span>
+            Your name<span class="ml-0.5 text-main-deep">*</span>
           </label>
           <input
             id="f-name"
@@ -116,7 +116,7 @@ const email = "wider@thfconstructionnj.com";
             name="name"
             required
             autocomplete="name"
-            class="rounded-md border border-rule px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
+            class="rounded-md border border-rule-strong px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
           />
         </div>
         <div class="flex flex-col">
@@ -124,7 +124,7 @@ const email = "wider@thfconstructionnj.com";
             for="f-phone"
             class="mb-1.5 text-[13px] font-medium text-dark-metallic"
           >
-            Phone<span class="ml-0.5 text-main">*</span>
+            Phone<span class="ml-0.5 text-main-deep">*</span>
           </label>
           <input
             id="f-phone"
@@ -133,7 +133,7 @@ const email = "wider@thfconstructionnj.com";
             required
             autocomplete="tel"
             placeholder="(201) 555-0100"
-            class="rounded-md border border-rule px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
+            class="rounded-md border border-rule-strong px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
           />
         </div>
       </div>
@@ -144,7 +144,7 @@ const email = "wider@thfconstructionnj.com";
             for="f-email"
             class="mb-1.5 text-[13px] font-medium text-dark-metallic"
           >
-            Email<span class="ml-0.5 text-main">*</span>
+            Email<span class="ml-0.5 text-main-deep">*</span>
           </label>
           <input
             id="f-email"
@@ -152,7 +152,7 @@ const email = "wider@thfconstructionnj.com";
             name="email"
             required
             autocomplete="email"
-            class="rounded-md border border-rule px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
+            class="rounded-md border border-rule-strong px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
           />
         </div>
         <div class="flex flex-col">
@@ -160,7 +160,7 @@ const email = "wider@thfconstructionnj.com";
             for="f-zip"
             class="mb-1.5 text-[13px] font-medium text-dark-metallic"
           >
-            Town or zip<span class="ml-0.5 text-main">*</span>
+            Town or zip<span class="ml-0.5 text-main-deep">*</span>
           </label>
           <input
             id="f-zip"
@@ -169,7 +169,7 @@ const email = "wider@thfconstructionnj.com";
             required
             autocomplete="postal-code"
             placeholder="Wyckoff or 07481"
-            class="rounded-md border border-rule px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
+            class="rounded-md border border-rule-strong px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
           />
         </div>
       </div>
@@ -179,13 +179,13 @@ const email = "wider@thfconstructionnj.com";
           for="f-project"
           class="mb-1.5 text-[13px] font-medium text-dark-metallic"
         >
-          Type of project<span class="ml-0.5 text-main">*</span>
+          Type of project<span class="ml-0.5 text-main-deep">*</span>
         </label>
         <select
           id="f-project"
           name="project"
           required
-          class="rounded-md border border-rule bg-white px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
+          class="rounded-md border border-rule-strong bg-white px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
         >
           <option value="">Select a project type…</option>
           <option>Interior</option>
@@ -214,7 +214,7 @@ const email = "wider@thfconstructionnj.com";
           for="f-message"
           class="mb-1.5 text-[13px] font-medium text-dark-metallic"
         >
-          Tell us a little about it<span class="ml-0.5 text-main">*</span>
+          Tell us a little about it<span class="ml-0.5 text-main-deep">*</span>
         </label>
         <textarea
           id="f-message"
@@ -223,20 +223,20 @@ const email = "wider@thfconstructionnj.com";
           required
           minlength="10"
           placeholder="Rough idea, timeline, anything you've already been quoted, photos welcome later by text…"
-          class="min-h-24 resize-y rounded-md border border-rule px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
+          class="min-h-24 resize-y rounded-md border border-rule-strong px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-hidden focus:ring-2 focus:ring-main-soft"
         ></textarea>
       </div>
 
       <button
         type="submit"
-        class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-main px-6 py-4 text-base font-semibold text-my-black shadow-xs transition-colors hover:bg-main-hover active:bg-main-deep"
+        class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-main px-6 py-4 text-base font-semibold text-my-black shadow-xs transition-colors hover:bg-my-black hover:text-white active:bg-dark-metallic active:text-white focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-black"
       >
         Request my free consultation
         <span class="material-symbols-outlined text-[20px]">
           arrow_right_alt
         </span>
       </button>
-      <p class="mt-3.5 text-xs leading-relaxed text-wolf-gray">
+      <p class="mt-3.5 text-xs leading-relaxed text-metallic">
         By submitting you agree we can call or text the number above. No spam,
         ever — we hate it too.
       </p>

@@ -10,7 +10,7 @@ const initials =
     .join("") || (name || "").slice(0, 1);
 ---
 
-<article class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_12px_28px_-10px_rgba(32,38,46,0.18),0_4px_8px_-4px_rgba(32,38,46,0.08)]">
+<article class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_12px_28px_-10px_rgba(29,37,45,0.18),0_4px_8px_-4px_rgba(29,37,45,0.08)]">
   {img && (
     <img
       src={img}
@@ -27,12 +27,12 @@ const initials =
     <p class="m-0 text-sm leading-relaxed text-dark-metallic">{review}</p>
     <div class="-mx-5 mt-1.5 border-t border-light-gray"></div>
     <div class="flex items-center gap-3 pt-3">
-      <div class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-light-gray text-[13px] font-bold text-main">
+      <div class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-my-black text-[13px] font-bold text-main">
         {initials}
       </div>
       <div class="flex flex-col leading-tight">
         <span class="text-[13px] font-semibold text-my-black">{name}</span>
-        {town && <span class="text-xs text-gray">Homeowner · {town}</span>}
+        {town && <span class="text-xs text-metallic">Homeowner · {town}</span>}
       </div>
     </div>
   </div>
