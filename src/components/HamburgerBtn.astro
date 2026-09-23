@@ -2,16 +2,15 @@
 ---
 
 <div class="flex items-center lg:hidden">
-  <!-- Steel plate with three orange bars; the bars fold into an × when the menu is open -->
+  <!-- Two stacked lines, the lower one half-width and right-aligned; they fold into an × when the menu is open -->
   <button
     type="button"
-    class="mobile-btn steel-plate group relative group-data-scrolled:steel-plate-light h-11 w-11 rounded-lg focus:outline-hidden focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2"
+    class="mobile-btn group relative h-11 w-11 rounded-lg transition-colors hover:bg-light-gray active:bg-light-gray focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-black group-data-scrolled:hover:bg-white/10 group-data-scrolled:active:bg-white/10 group-data-scrolled:focus-visible:outline-white"
     aria-controls="mobile-menu"
     aria-expanded="false"
     aria-label="Open menu"
   >
-    <span class="absolute left-1/2 top-[14px] h-[3px] w-5 -translate-x-1/2 rounded-full bg-main transition-[translate,rotate] duration-200 ease-out group-aria-expanded:translate-y-[7px] group-aria-expanded:rotate-45"></span>
-    <span class="absolute left-1/2 top-[21px] h-[3px] w-5 -translate-x-1/2 rounded-full bg-main transition-[scale,opacity] duration-150 ease-out group-aria-expanded:scale-x-0 group-aria-expanded:opacity-0"></span>
-    <span class="absolute left-1/2 top-[28px] h-[3px] w-5 -translate-x-1/2 rounded-full bg-main transition-[translate,rotate] duration-200 ease-out group-aria-expanded:-translate-y-[7px] group-aria-expanded:-rotate-45"></span>
+    <span class="absolute left-1/2 top-[16px] h-[3px] w-6 -translate-x-1/2 rounded-full bg-my-black transition-[translate,rotate] duration-200 ease-out group-aria-expanded:translate-y-[4.5px] group-aria-expanded:rotate-45 group-data-scrolled:bg-white"></span>
+    <span class="absolute right-[10px] top-[25px] h-[3px] w-3 rounded-full bg-my-black transition-[translate,rotate,width] duration-200 ease-out group-aria-expanded:w-6 group-aria-expanded:-translate-y-[4.5px] group-aria-expanded:-rotate-45 group-data-scrolled:bg-white"></span>
   </button>
 </div>
