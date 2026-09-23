@@ -1,29 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  /* THF Orange — architectural/burnt orange accent (hue ~22°). Fills, icons,
-     buttons, and large accent words on white. As text it is 3.1:1 on white,
-     so small orange text and any orange text on tinted surfaces use the
-     darker steps below. */
-  --color-main: #e86f2a;
-  --color-main-hover: #d45f20; /* large (≥24px / ≥19px bold) orange text on egg-white or light-gray, where main misses 3:1 */
-  --color-main-deep: #bc4e17; /* small orange text or icons on light surfaces (≥4.5:1 on white and egg-white) */
-  --color-main-light: #f3a071; /* orange for text on charcoal (7.4:1) / gradient end — currently unused */
-  --color-main-soft: #fce6da; /* tints, icon chips, focus rings */
+  /* THF Orange — the single chromatic brand accent (hue ~17°). Fills, icons,
+     buttons (always with carbon text, 5.2:1), text of any size on carbon
+     (5.2:1), and large display words on white (3.15:1). Too light for small
+     text on any light surface, and only 3.0:1 on egg-white / 2.7:1 on
+     light-gray, so orange TEXT on light surfaces uses the darker steps below. */
+  --color-main: #f4632a;
+  --color-main-hover: #e95b22; /* large (≥24px / ≥19px bold) orange text on egg-white (3.4:1) or light-gray (3.05:1), where main has no margin or misses 3:1 */
+  --color-main-deep: #c64614; /* small orange text or icons on white (4.9:1) and egg-white (4.7:1); 4.25:1 on light-gray, so large text / icons only there */
+  --color-main-light: #ff9a74; /* orange for text on carbon (7.9:1) / gradient end — currently unused */
+  --color-main-soft: #fce5db; /* tints and icon chips (main-deep icons on it: 4.05:1) */
 
-  /* THF Charcoal — primary dark. Headings, dark sections, button text on orange;
-     primary-button hover surface and focus-ring color on light surfaces (white
-     plays those roles on charcoal). */
-  --color-my-black: #1d252d;
+  /* Carbon Black — primary dark. Headings, dark sections, text on orange CTAs;
+     primary-button hover surface and focus-outline color on light surfaces
+     (white plays those roles on carbon). */
+  --color-my-black: #202020;
 
-  /* Neutrals — cool gray scale. Contrast is against white unless noted. */
-  --color-dark-metallic: #343d45; /* form labels, emphasized body, secondary dark buttons (11:1) */
-  --color-metallic: #626d76; /* muted text on light surfaces: body copy, nav links, eyebrows, captions, chips (5.3:1; 4.7:1 on light-gray) */
-  --color-gray: #9da5ab; /* muted text on DARK surfaces only (6.2:1 on charcoal); 2.5:1 on white, so not for text on light */
-  --color-light-gray: #eff1f2; /* light surface and hover fill; also light text on charcoal */
-  --color-egg-white: #f8f8f6; /* warm off-white surface; off-white text on charcoal */
-  --color-rule: #d9dde0; /* hairlines and decorative, non-interactive borders (1.4:1) */
-  --color-rule-strong: #8a929a; /* form-control and outlined-button boundaries — 3.15:1 on white (WCAG 1.4.11); 2.97:1 on egg-white, so keep controls on white */
+  /* Neutrals — warm graphite scale. Contrast is against white unless noted. */
+  --color-dark-metallic: #3e3e3e; /* Gunmetal: form labels, emphasized body, secondary dark buttons (10.7:1) */
+  --color-metallic: #666666; /* secondary text on light surfaces: body copy, nav links, eyebrows, captions, chips (5.7:1; 5.5:1 on egg-white; 5.0:1 on light-gray) */
+  --color-gray: #a6a6a3; /* muted text on DARK surfaces only (6.7:1 on carbon); 2.4:1 on white, so on light surfaces only for decorative aria-hidden glyphs */
+  --color-light-gray: #efefed; /* light surface and hover fill; also light text on carbon */
+  --color-egg-white: #fafaf8; /* Bright Snow — warm-white surface; off-white text on carbon */
+  --color-rule: #dadad6; /* hairlines and decorative, non-interactive borders (1.4:1) */
+  --color-rule-strong: #898985; /* form-control and outlined-button boundaries (WCAG 1.4.11): 3.5:1 on white, 3.4:1 on egg-white, 3.05:1 on light-gray */
 
   --animate-img-slider: img-slider 150s linear infinite;
 
