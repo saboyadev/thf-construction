@@ -7,8 +7,15 @@ import CTAButton from "./CallToActionBtn.astro";
     <div class="mb-5 text-left text-xs font-medium uppercase tracking-[5.25px] text-metallic min-[1200px]:mb-10">
       Interior & Exterior Contractor
     </div>
-    <h1 class="mb-3 max-w-[320px] text-[33px] font-bold leading-tight tracking-[-0.75px] text-my-black sm:max-w-none sm:text-[39px] min-[1200px]:text-5xl">
-      Ready to Transform your <span class="typed text-main-hover"></span>?
+    <!-- No max-width: on phones "Ready to Transform" fills line one and the
+         typed phrase sits on line two. The block span keeps "your" with the
+         word so the line never jumps while it types; 32px leaves line one
+         9px of room inside a 360px viewport (33px overflowed it by 1px). -->
+    <h1 class="mb-3 text-[32px] font-bold leading-tight tracking-[-0.75px] text-my-black sm:text-[39px] min-[1200px]:text-5xl">
+      Ready to Transform{" "}
+      <span class="block sm:inline">
+        your <span class="typed text-main-hover"></span>?
+      </span>
     </h1>
     <p class="mb-6 text-2xl font-semibold text-my-black min-[1200px]:mb-10">
       Let's Build It.
