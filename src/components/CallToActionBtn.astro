@@ -4,6 +4,18 @@
 // classes by interpolation (`bg-${x}`). Base never sets a utility that an
 // option also sets (display, padding, radius, colors): same-property
 // utilities are emitted alphabetically, so a later class does not win.
+interface Props {
+  variant?: "orange" | "dark";
+  size?: "md" | "lg";
+  rounded?: "md" | "xl";
+  block?: boolean;
+  icon?: string | null;
+  href?: string;
+  type?: "button" | "submit";
+  id?: string;
+  class?: string;
+}
+
 const {
   variant = "orange",
   size = "md",
