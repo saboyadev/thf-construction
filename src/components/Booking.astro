@@ -1,14 +1,16 @@
 ---
+import CTAButton from "./CallToActionBtn.astro";
+
 const phone = "+12016860089";
 const phoneDisplay = "(201) 686-0089";
 const email = "wider@thfconstructionnj.com";
 ---
 
 <section class="bg-my-black px-6 py-10 sm:py-20 text-white" id="book">
-  <div class="mx-auto grid max-w-[1200px] items-start gap-14 lg:grid-cols-[1fr_1.1fr]">
+  <div class="mx-auto grid max-w-[1200px] grid-cols-1 items-start gap-14 lg:grid-cols-[1fr_1.1fr]">
     <div>
       <p class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-main">
-        Free Consultation
+        Free Estimate
       </p>
       <h2 class="mb-4 text-[clamp(30px,4.2vw,44px)] font-bold leading-[1.1] tracking-[-0.04em] text-white">
         Let's walk your space and talk through it
@@ -47,7 +49,7 @@ const email = "wider@thfconstructionnj.com";
           </div>
         </div>
       </div>
-      <div class="mt-8 flex flex-wrap items-center gap-4 border-t border-white/10 pt-6">
+      <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-6 sm:gap-4">
         <a
           href={`tel:${phone}`}
           class="inline-flex items-center gap-2 text-[15px] font-medium text-white"
@@ -57,7 +59,7 @@ const email = "wider@thfconstructionnj.com";
           </span>
           {phoneDisplay}
         </a>
-        <span class="h-4 w-px bg-white/15"></span>
+        <span class="hidden h-4 w-px bg-white/15 sm:block"></span>
         <a
           href={`sms:${phone}`}
           class="inline-flex items-center gap-2 text-[15px] font-medium text-white"
@@ -67,7 +69,7 @@ const email = "wider@thfconstructionnj.com";
           </span>
           Text us
         </a>
-        <span class="h-4 w-px bg-white/15"></span>
+        <span class="hidden h-4 w-px bg-white/15 sm:block"></span>
         <a
           href={`mailto:${email}`}
           class="inline-flex items-center gap-2 text-[15px] font-medium text-white"
@@ -86,7 +88,7 @@ const email = "wider@thfconstructionnj.com";
       data-netlify="true"
       netlify-honeypot="bot-field"
       action="/thanks"
-      class="rounded-lg bg-white p-8 text-my-black shadow-xl"
+      class="rounded-lg bg-white p-6 text-my-black shadow-xl sm:p-8"
     >
       <input type="hidden" name="form-name" value="consultation" />
       <p class="hidden">
@@ -96,13 +98,13 @@ const email = "wider@thfconstructionnj.com";
       </p>
 
       <h3 class="mb-1 text-xl font-bold tracking-tight text-my-black">
-        Book a free in-home consultation
+        Get your free in-home estimate
       </h3>
       <p class="mb-6 text-sm text-metallic">
         Takes 1 minute. Wider usually calls back the same day.
       </p>
 
-      <div class="grid gap-4 sm:grid-cols-2">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div class="flex flex-col">
           <label
             for="f-name"
@@ -138,7 +140,7 @@ const email = "wider@thfconstructionnj.com";
         </div>
       </div>
 
-      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div class="flex flex-col">
           <label
             for="f-email"
@@ -185,7 +187,7 @@ const email = "wider@thfconstructionnj.com";
           id="f-project"
           name="project"
           required
-          class="rounded-md border border-rule-strong bg-white px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-my-black"
+          class="w-full min-w-0 rounded-md border border-rule-strong bg-white px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-my-black"
         >
           <option value="">Select a project type…</option>
           <option>Interior</option>
@@ -227,15 +229,9 @@ const email = "wider@thfconstructionnj.com";
         ></textarea>
       </div>
 
-      <button
-        type="submit"
-        class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-main px-6 py-4 text-base font-semibold text-my-black shadow-xs transition-colors hover:bg-my-black hover:text-white active:bg-dark-metallic active:text-white focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-black"
-      >
-        Request my free consultation
-        <span class="material-symbols-outlined text-[20px]">
-          arrow_right_alt
-        </span>
-      </button>
+      <CTAButton type="submit" size="lg" block class="mt-5">
+        Get my free estimate
+      </CTAButton>
       <p class="mt-3.5 text-xs leading-relaxed text-metallic">
         By submitting you agree we can call or text the number above. No spam,
         ever — we hate it too.

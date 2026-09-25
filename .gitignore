@@ -30,3 +30,6 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# Full-size source images kept locally (web-sized copies live in public/)
+_originals/
