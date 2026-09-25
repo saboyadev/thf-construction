@@ -1,41 +1,63 @@
 ---
-const { content, icon, color, hidden, href, id, size = "md" } = Astro.props;
+// Tailwind v4 only emits CSS for class strings that appear literally in
+// source, so every option maps to a complete class string below. Never build
+// classes by interpolation (`bg-${x}`). Base never sets a utility that an
+// option also sets (display, padding, radius, colors): same-property
+// utilities are emitted alphabetically, so a later class does not win.
+const {
+  variant = "orange",
+  size = "md",
+  rounded = "md",
+  block = false,
+  icon = "arrow_right_alt",
+  href,
+  type = "button",
+  id,
+  class: className,
+} = Astro.props;
 
 // Orange buttons use dark text (white on the brand orange fails WCAG AA) and
 // invert to carbon/white on hover (white/carbon inside the scrolled dark
 // nav, where carbon would vanish); pressed steps to dark-metallic. Dark
-// buttons keep white text and a simple opacity hover. Focus is an offset
-// outline in the surface's text color: carbon on light, white on carbon.
-const stateClasses =
-  color === "bg-main"
-    ? "text-my-black hover:bg-my-black hover:text-white active:bg-dark-metallic active:text-white group-data-scrolled:hover:bg-white group-data-scrolled:hover:text-my-black group-data-scrolled:active:bg-light-gray group-data-scrolled:active:text-my-black"
-    : "text-white hover:opacity-90";
+// buttons keep white text and a simple opacity hover. The group-data-scrolled
+// classes only match under `.group[data-scrolled]` (the scrolled nav), so
+// they are inert everywhere else.
+const variants = {
+  orange:
+    "bg-main text-my-black hover:bg-my-black hover:text-white active:bg-dark-metallic active:text-white group-data-scrolled:hover:bg-white group-data-scrolled:hover:text-my-black group-data-scrolled:active:bg-light-gray group-data-scrolled:active:text-my-black",
+  dark: "bg-dark-metallic text-white hover:opacity-90",
+};
+const sizes = {
+  md: "px-4 py-3 text-sm sm:text-base",
+  lg: "px-5 py-4 text-base sm:px-6 sm:text-lg",
+};
+const radii = { md: "rounded-md", xl: "rounded-xl" };
 
-const baseClasses = [
-  "relative inline-flex items-center gap-x-1.5 rounded-md shadow-xs transition-[background-color,color,opacity] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-black group-data-scrolled:focus-visible:outline-white",
-  size === "lg"
-    ? "px-5 py-4 text-base font-semibold sm:px-6 sm:py-4 sm:text-lg"
-    : "px-4 py-3 text-sm font-semibold sm:text-base",
-  color,
-  stateClasses,
+if (!variants[variant])
+  throw new Error(`CTAButton: unknown variant "${variant}"`);
+if (!sizes[size]) throw new Error(`CTAButton: unknown size "${size}"`);
+if (!radii[rounded]) throw new Error(`CTAButton: unknown rounded "${rounded}"`);
+
+// Focus is an offset outline in the surface's text color: carbon on light,
+// white on carbon.
+const classes = [
+  "relative shrink-0 items-center gap-1.5 font-semibold shadow-xs transition-[background-color,color,opacity] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-black group-data-scrolled:focus-visible:outline-white",
+  block ? "flex w-full justify-center" : "inline-flex",
+  variants[variant],
+  sizes[size],
+  radii[rounded],
+  className,
 ];
-const wrapperClasses = [hidden, "shrink-0"];
+
+// A link when there is somewhere to go, otherwise a real button (form submit)
+const Tag = href ? "a" : "button";
 ---
 
-<div class:list={wrapperClasses}>
-  {href ? (
-    <a id={id} href={href} class:list={baseClasses}>
-      {content}
-      {icon && (
-        <span class="material-symbols-outlined text-[22px]">{icon}</span>
-      )}
-    </a>
-  ) : (
-    <button id={id} type="button" class:list={baseClasses}>
-      {content}
-      {icon && (
-        <span class="material-symbols-outlined text-[22px]">{icon}</span>
-      )}
-    </button>
+<Tag id={id} href={href} type={href ? undefined : type} class:list={classes}>
+  <slot />
+  {icon && (
+    <span class="material-symbols-outlined text-[20px]" aria-hidden="true">
+      {icon}
+    </span>
   )}
-</div>
+</Tag>

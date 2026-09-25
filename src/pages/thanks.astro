@@ -1,6 +1,7 @@
 ---
 import "../custom-style.css";
 import MainLayout from "../layouts/MainLayout.astro";
+import CTAButton from "../components/CallToActionBtn.astro";
 ---
 
 <MainLayout title="THF Construction LLC | Thanks">
@@ -9,29 +10,23 @@ import MainLayout from "../layouts/MainLayout.astro";
       <div class="mx-auto mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full bg-main text-my-black">
         <span class="material-symbols-outlined text-[36px]">check</span>
       </div>
-      <h1 class="mb-2 text-3xl font-bold tracking-tight text-my-black">
+      <h1 class="mb-2 text-3xl font-bold tracking-tight text-balance text-my-black">
         Thanks — we got it
       </h1>
       <p class="mb-6 text-base leading-relaxed text-metallic">
         One of us will be in touch within one business day to set up your free
-        in-home consult. Need to talk now? Call us at{" "}
+        in-home estimate. Need to talk now? Call us at{" "}
         <a
           href="tel:+12016860089"
-          class="font-semibold text-main-deep underline"
+          class="font-semibold whitespace-nowrap text-main-deep underline"
         >
           (201) 686-0089
         </a>
         .
       </p>
-      <a
-        href="/"
-        class="inline-flex items-center gap-1.5 rounded-md bg-dark-metallic px-5 py-3 text-sm font-semibold text-white hover:opacity-90 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-black"
-      >
+      <CTAButton variant="dark" href="/">
         Back to Home
-        <span class="material-symbols-outlined text-[18px]">
-          arrow_right_alt
-        </span>
-      </a>
+      </CTAButton>
     </div>
   </section>
 </MainLayout>

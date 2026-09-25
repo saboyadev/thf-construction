@@ -2,12 +2,12 @@ import Typed from 'typed.js'
 
 document.addEventListener('DOMContentLoaded', function () {
 	var typed = new Typed('.typed', {
-		strings: ['kitchen', 'bathroom', 'basement', 'home remodel'],
+		strings: ['home', 'kitchen', 'bathroom', 'basement', 'outdoor', 'attic'],
 		typeSpeed: 80,
 		loop: true,
 		backSpeed: 30,
 		cursorChar: '|',
 		smartBackspace: false,
-		backDelay: 5000,
+		backDelay: 1200,
 	})
 })
