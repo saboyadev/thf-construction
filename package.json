@@ -7,15 +7,20 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "node --test \"src/server/reviews/__tests__/*.test.ts\""
   },
   "dependencies": {
+    "@astrojs/netlify": "^8.2.12",
+    "@netlify/blobs": "^11.1.8",
+    "@netlify/functions": "^6.1.1",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.2",
     "tailwindcss": "^4.3.3",
     "typed.js": "^2.0.16"
   },
   "devDependencies": {
+    "@types/node": "^24.19.2",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^1.0.0",
     "prettier-plugin-tailwindcss": "^0.8.1"

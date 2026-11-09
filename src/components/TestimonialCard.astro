@@ -1,5 +1,37 @@
 ---
-const { name, town, review, rating = 5, img } = Astro.props;
+/**
+ * Custom review card. Two sources share it:
+ *   - Google reviews (GoogleReviews island): `review` may be null for a
+ *     rating-only review, `date` carries "Updated …", no town, optional avatar.
+ *   - legacy/testimonial usage: `town` and `img` remain supported.
+ * Text is rendered exactly as given; nothing is trimmed or rewritten.
+ */
+interface Props {
+  name: string;
+  rating?: number;
+  /** Verbatim review text; `null`/undefined renders the compact rating-only variant. */
+  review?: string | null;
+  /** Optional date line, e.g. "Updated 3 weeks ago". */
+  date?: string;
+  avatarUrl?: string | null;
+  town?: string;
+  img?: string;
+  class?: string;
+}
+
+const {
+  name,
+  rating = 5,
+  review = null,
+  date,
+  avatarUrl = null,
+  town,
+  img,
+  class: className,
+} = Astro.props;
+
+const ratingOnly = review === null || review === undefined || review === "";
+const stars = Math.max(0, Math.min(5, Math.round(rating)));
 
 const initials =
   (name || "")
@@ -10,7 +42,13 @@ const initials =
     .join("") || (name || "").slice(0, 1);
 ---
 
-<article class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_12px_28px_-10px_rgba(32,32,32,0.18),0_4px_8px_-4px_rgba(32,32,32,0.08)]">
+<article
+  class:list={[
+    "flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_12px_28px_-10px_rgba(32,32,32,0.18),0_4px_8px_-4px_rgba(32,32,32,0.08)]",
+    className,
+  ]}
+  aria-label={`${stars} out of 5 stars${ratingOnly ? ", rating only" : ""}, ${name}`}
+>
   {img && (
     <img
       src={img}
@@ -18,21 +56,53 @@ const initials =
       class="h-[180px] w-full object-cover"
     />
   )}
-  <div class="flex flex-1 flex-col gap-2.5 px-5 pb-3.5 pt-4">
-    <div class="flex gap-px text-sm leading-none text-main">
+  <div
+    class:list={[
+      "flex flex-1 flex-col gap-2.5 px-5 pb-3.5",
+      ratingOnly ? "pt-3.5" : "pt-4",
+    ]}
+  >
+    <div class="flex gap-px text-sm leading-none text-main" aria-hidden="true">
       {Array.from({ length: 5 }).map((_, i) => (
-        <span>{i < rating ? "★" : "☆"}</span>
+        <span>{i < stars ? "★" : "☆"}</span>
       ))}
     </div>
-    <p class="m-0 text-sm leading-relaxed text-dark-metallic">{review}</p>
+    {ratingOnly ? (
+      <p class="m-0 text-sm italic leading-relaxed text-metallic">
+        Rating only, no written review.
+      </p>
+    ) : (
+      <p class="m-0 text-sm leading-relaxed whitespace-pre-line text-dark-metallic">
+        {review}
+      </p>
+    )}
     <div class="-mx-5 mt-1.5 border-t border-light-gray"></div>
     <div class="flex items-center gap-3 pt-3">
-      <div class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-my-black text-[13px] font-bold text-main">
-        {initials}
-      </div>
+      {avatarUrl ? (
+        <img
+          src={avatarUrl}
+          alt=""
+          width="36"
+          height="36"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          class="h-9 w-9 shrink-0 rounded-full object-cover"
+        />
+      ) : (
+        <div
+          class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-my-black text-[13px] font-bold text-main"
+          aria-hidden="true"
+        >
+          {initials}
+        </div>
+      )}
       <div class="flex flex-col leading-tight">
         <span class="text-[13px] font-semibold text-my-black">{name}</span>
-        {town && <span class="text-xs text-metallic">Homeowner · {town}</span>}
+        {date ? (
+          <span class="text-xs text-metallic">{date}</span>
+        ) : (
+          town && <span class="text-xs text-metallic">Homeowner · {town}</span>
+        )}
       </div>
     </div>
   </div>

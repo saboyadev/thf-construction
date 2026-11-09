@@ -1,0 +1,84 @@
+---
+/**
+ * Deferred Google Reviews island (rendered with `server:defer`).
+ *
+ * States come from src/server/reviews (kept distinct internally):
+ *   not-connected → render nothing, no log
+ *   ok, empty     → render nothing
+ *   ok, populated → review heading, sourcing line and custom cards (below)
+ *   error         → render nothing; one sanitized line in the function logs
+ *
+ * Everything review-specific (heading, band, padding, cards) lives inside the
+ * conditional so the other states leave no gap. The static <ReviewInvitation>
+ * next to this island does not depend on it.
+ *
+ * Phase A: no live Google fetching exists yet; populated output is reachable
+ * only through local development fixtures (see src/server/reviews/gate.ts).
+ */
+import TestimonialCard from "./TestimonialCard.astro";
+import { getReviews } from "../server/reviews/index.ts";
+import { selectForDisplay, toCardReview } from "../server/reviews/present.ts";
+import type { CardReview } from "../server/reviews/types.ts";
+
+const result = await getReviews();
+const now = new Date();
+const cards: CardReview[] =
+  result.state === "ok"
+    ? selectForDisplay(result.reviews)
+        .map((r) => toCardReview(r, now))
+        .filter((c): c is CardReview => c !== null)
+    : [];
+
+// THF's Google Business Profile (the review link's base).
+const profileUrl = "https://g.page/r/CV1boDcK_PrJECE";
+---
+
+{cards.length > 0 && (
+  <section
+    class="bg-light-gray py-10 sm:py-20"
+    aria-labelledby="reviews-heading"
+  >
+    <div class="mx-auto max-w-[1200px] px-6">
+      <div class="mb-10 text-center">
+        <p class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-metallic">
+          Real Reviews
+        </p>
+        <h2
+          id="reviews-heading"
+          class="mb-3 text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-my-black"
+        >
+          What clients are <span class="text-main-hover">saying</span>
+        </h2>
+        <p class="mx-auto max-w-[680px] text-[15px] leading-relaxed text-metallic">
+          Most recently updated reviews from{" "}
+          <a
+            href={profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-sm font-medium text-main-deep underline underline-offset-2 hover:text-my-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-black"
+          >
+            THF Construction's Google Business Profile
+          </a>
+          .
+        </p>
+      </div>
+      <ul
+        class="grid list-none gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3"
+        aria-label="Google reviews"
+      >
+        {cards.map((c) => (
+          <li class="flex">
+            <TestimonialCard
+              name={c.name}
+              rating={c.rating}
+              review={c.text}
+              date={c.updatedLabel}
+              avatarUrl={c.avatarUrl}
+              class="w-full"
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
