@@ -3,7 +3,7 @@ import CTAButton from "./CallToActionBtn.astro";
 
 const phone = "+12016860089";
 const phoneDisplay = "(201) 686-0089";
-const email = "wider@thfconstructionnj.com";
+const email = "wilder@thfconstruction.com";
 ---
 
 <section class="bg-my-black px-6 py-10 sm:py-20 text-white" id="book">
@@ -13,21 +13,22 @@ const email = "wider@thfconstructionnj.com";
         Free Estimate
       </p>
       <h2 class="mb-4 text-[clamp(30px,4.2vw,44px)] font-bold leading-[1.1] tracking-[-0.04em] text-white">
-        Let's walk your space and talk through it
+        Let's Talk About Your Project
       </h2>
       <p class="mb-7 max-w-[460px] text-[17px] leading-relaxed text-gray">
-        One quick visit. We listen, take measurements, and follow up with a
-        written, line-item quote. No pressure, no salesperson — just Wider, with
-        honest numbers.
+        Planning a renovation or home improvement project? Tell us what you have
+        in mind. We'll discuss your goals, assess the space, and help you
+        understand the next steps.
       </p>
       <div class="grid max-w-[460px] gap-3.5">
         <div class="flex gap-3 text-[15px] text-egg-white">
           <span class="material-symbols-outlined shrink-0 text-[22px] text-main">
-            schedule
+            calendar_month
           </span>
           <div>
-            <strong class="text-white">30–45 minutes on site.</strong> We come
-            to you, evenings or weekends are fine.
+            <strong class="block text-white">Flexible Scheduling</strong>
+            We'll coordinate a convenient time to visit and discuss your
+            project.
           </div>
         </div>
         <div class="flex gap-3 text-[15px] text-egg-white">
@@ -35,8 +36,9 @@ const email = "wider@thfconstructionnj.com";
             request_quote
           </span>
           <div>
-            <strong class="text-white">Written quote in 3–5 days.</strong>{" "}
-            Line-item, in plain English. Yours to keep.
+            <strong class="block text-white">Prompt, Detailed Estimates</strong>
+            Receive a clear breakdown of your project's scope and estimated
+            costs, with timely communication throughout the process.
           </div>
         </div>
         <div class="flex gap-3 text-[15px] text-egg-white">
@@ -44,40 +46,40 @@ const email = "wider@thfconstructionnj.com";
             handshake
           </span>
           <div>
-            <strong class="text-white">No obligation.</strong> Hire us, hire
-            someone else, or sit on it for a year. No follow-up nags.
+            <strong class="block text-white">No Pressure, Just Answers</strong>
+            Ask questions, explore your options, and make the decision that's
+            right for your home.
           </div>
         </div>
       </div>
       <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-6 sm:gap-4">
         <a
           href={`tel:${phone}`}
+          aria-label={`Call us at ${phoneDisplay}`}
           class="inline-flex items-center gap-2 text-[15px] font-medium text-white"
         >
-          <span class="material-symbols-outlined text-[22px] text-main">
+          <span
+            class="material-symbols-outlined text-[22px] text-main"
+            aria-hidden="true"
+          >
             call
           </span>
-          {phoneDisplay}
-        </a>
-        <span class="hidden h-4 w-px bg-white/15 sm:block"></span>
-        <a
-          href={`sms:${phone}`}
-          class="inline-flex items-center gap-2 text-[15px] font-medium text-white"
-        >
-          <span class="material-symbols-outlined text-[22px] text-main">
-            sms
-          </span>
-          Text us
+          Call Us
+          <span class="font-normal text-gray">{phoneDisplay}</span>
         </a>
         <span class="hidden h-4 w-px bg-white/15 sm:block"></span>
         <a
           href={`mailto:${email}`}
+          aria-label={`Email us at ${email}`}
           class="inline-flex items-center gap-2 text-[15px] font-medium text-white"
         >
-          <span class="material-symbols-outlined text-[22px] text-main">
+          <span
+            class="material-symbols-outlined text-[22px] text-main"
+            aria-hidden="true"
+          >
             mail
           </span>
-          Email Wider
+          Email Us
         </a>
       </div>
     </div>
@@ -98,10 +100,10 @@ const email = "wider@thfconstructionnj.com";
       </p>
 
       <h3 class="mb-1 text-xl font-bold tracking-tight text-my-black">
-        Get your free in-home estimate
+        Request Your Free Estimate
       </h3>
       <p class="mb-6 text-sm text-metallic">
-        Takes 1 minute. Wider usually calls back the same day.
+        Tell us about your project and we'll be in touch soon.
       </p>
 
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -135,7 +137,7 @@ const email = "wider@thfconstructionnj.com";
             required
             autocomplete="tel"
             placeholder="(201) 555-0100"
-            class="rounded-md border border-rule-strong px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-my-black"
+            class="placeholder:text-metallic rounded-md border border-rule-strong px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-my-black"
           />
         </div>
       </div>
@@ -162,7 +164,7 @@ const email = "wider@thfconstructionnj.com";
             for="f-zip"
             class="mb-1.5 text-[13px] font-medium text-dark-metallic"
           >
-            Town or zip<span class="ml-0.5 text-main-deep">*</span>
+            Town or ZIP Code<span class="ml-0.5 text-main-deep">*</span>
           </label>
           <input
             id="f-zip"
@@ -171,7 +173,7 @@ const email = "wider@thfconstructionnj.com";
             required
             autocomplete="postal-code"
             placeholder="Wyckoff or 07481"
-            class="rounded-md border border-rule-strong px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-my-black"
+            class="placeholder:text-metallic rounded-md border border-rule-strong px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-my-black"
           />
         </div>
       </div>
@@ -204,7 +206,7 @@ const email = "wider@thfconstructionnj.com";
             <option>Stucco / siding</option>
             <option>Deck</option>
             <option>Pavers / patio</option>
-            <option>Stone &amp; hardscape</option>
+            <option>Masonry &amp; stonework</option>
             <option>Full exterior renovation</option>
           </optgroup>
           <option>Not sure yet — let's talk</option>
@@ -216,25 +218,24 @@ const email = "wider@thfconstructionnj.com";
           for="f-message"
           class="mb-1.5 text-[13px] font-medium text-dark-metallic"
         >
-          Tell us a little about it<span class="ml-0.5 text-main-deep">*</span>
+          Tell Us About Your Project
+          <span class="ml-1 font-normal text-metallic">(optional)</span>
         </label>
         <textarea
           id="f-message"
           name="message"
           rows="4"
-          required
-          minlength="10"
-          placeholder="Rough idea, timeline, anything you've already been quoted, photos welcome later by text…"
-          class="min-h-24 resize-y rounded-md border border-rule-strong px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-my-black"
+          placeholder="Tell us what you're planning, what you'd like to change, or any questions you have."
+          class="placeholder:text-metallic min-h-24 resize-y rounded-md border border-rule-strong px-3.5 py-2.5 text-[15px] focus:border-main focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-my-black"
         ></textarea>
       </div>
 
       <CTAButton type="submit" size="lg" block class="mt-5">
-        Get my free estimate
+        Request My Free Estimate
       </CTAButton>
       <p class="mt-3.5 text-xs leading-relaxed text-metallic">
-        By submitting you agree we can call or text the number above. No spam,
-        ever — we hate it too.
+        By submitting this form, you agree that THF Construction may contact you
+        by phone, text message, or email about your estimate request.
       </p>
     </form>
   </div>
