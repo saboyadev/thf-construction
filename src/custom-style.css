@@ -105,7 +105,7 @@
 
 @layer base {
   body {
-    font-family: "Poppins", Arial, sans-serif;
+    font-family: var(--font-poppins);
     font-size: 15px;
     font-weight: 400;
   }
@@ -128,6 +128,16 @@
       "wght" 400,
       "FILL" 1,
       "GRAD" 0;
+    /* Reserve the glyph's square before the icon font loads: Google's (unlayered)
+       stylesheet sets font-size: 24px, line-height: 1, inline-block and nowrap, so
+       until the font arrives the ligature name ("arrow_right_alt") renders as a
+       wide word that widens buttons and wraps lines. A 1em box in every state
+       means icon loading moves nothing; flex-shrink keeps flex parents from
+       squeezing it. */
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    flex-shrink: 0;
   }
 }
 

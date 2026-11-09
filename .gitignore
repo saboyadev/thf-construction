@@ -33,3 +33,7 @@ pnpm-debug.log*
 
 # Full-size source images kept locally (web-sized copies live in public/)
 _originals/
+
+# local-only env files
+.env.local
+.env.*.local

@@ -6,11 +6,18 @@
 // utilities are emitted alphabetically, so a later class does not win.
 interface Props {
   variant?: "orange" | "dark";
+  /** Surface the button sits on. "dark" (carbon) flips hover/focus to white so
+   *  the button never disappears into the background. The scrolled nav gets the
+   *  same treatment automatically via group-data-scrolled. */
+  surface?: "light" | "dark";
   size?: "md" | "lg";
   rounded?: "md" | "xl";
   block?: boolean;
   icon?: string | null;
   href?: string;
+  /** Link-only: pass-through for external links (e.g. target="_blank" rel="noopener"). */
+  target?: "_blank" | "_self";
+  rel?: string;
   type?: "button" | "submit";
   id?: string;
   class?: string;
@@ -18,11 +25,14 @@ interface Props {
 
 const {
   variant = "orange",
+  surface = "light",
   size = "md",
   rounded = "md",
   block = false,
   icon = "arrow_right_alt",
   href,
+  target,
+  rel,
   type = "button",
   id,
   class: className,
@@ -35,9 +45,20 @@ const {
 // classes only match under `.group[data-scrolled]` (the scrolled nav), so
 // they are inert everywhere else.
 const variants = {
-  orange:
-    "bg-main text-my-black hover:bg-my-black hover:text-white active:bg-dark-metallic active:text-white group-data-scrolled:hover:bg-white group-data-scrolled:hover:text-my-black group-data-scrolled:active:bg-light-gray group-data-scrolled:active:text-my-black",
-  dark: "bg-dark-metallic text-white hover:opacity-90",
+  orange: {
+    light:
+      "bg-main text-my-black hover:bg-my-black hover:text-white active:bg-dark-metallic active:text-white group-data-scrolled:hover:bg-white group-data-scrolled:hover:text-my-black group-data-scrolled:active:bg-light-gray group-data-scrolled:active:text-my-black",
+    dark: "bg-main text-my-black hover:bg-white hover:text-my-black active:bg-light-gray active:text-my-black",
+  },
+  dark: {
+    light: "bg-dark-metallic text-white hover:opacity-90",
+    dark: "bg-dark-metallic text-white hover:opacity-90",
+  },
+};
+const focusRings = {
+  light:
+    "focus-visible:outline-my-black group-data-scrolled:focus-visible:outline-white",
+  dark: "focus-visible:outline-white",
 };
 const sizes = {
   md: "px-4 py-3 text-sm sm:text-base",
@@ -47,15 +68,18 @@ const radii = { md: "rounded-md", xl: "rounded-xl" };
 
 if (!variants[variant])
   throw new Error(`CTAButton: unknown variant "${variant}"`);
+if (!focusRings[surface])
+  throw new Error(`CTAButton: unknown surface "${surface}"`);
 if (!sizes[size]) throw new Error(`CTAButton: unknown size "${size}"`);
 if (!radii[rounded]) throw new Error(`CTAButton: unknown rounded "${rounded}"`);
 
 // Focus is an offset outline in the surface's text color: carbon on light,
 // white on carbon.
 const classes = [
-  "relative shrink-0 items-center gap-1.5 font-semibold shadow-xs transition-[background-color,color,opacity] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-black group-data-scrolled:focus-visible:outline-white",
+  "relative shrink-0 items-center gap-1.5 font-semibold shadow-xs transition-[background-color,color,opacity] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2",
+  focusRings[surface],
   block ? "flex w-full justify-center" : "inline-flex",
-  variants[variant],
+  variants[variant][surface],
   sizes[size],
   radii[rounded],
   className,
@@ -65,7 +89,14 @@ const classes = [
 const Tag = href ? "a" : "button";
 ---
 
-<Tag id={id} href={href} type={href ? undefined : type} class:list={classes}>
+<Tag
+  id={id}
+  href={href}
+  target={href ? target : undefined}
+  rel={href ? rel : undefined}
+  type={href ? undefined : type}
+  class:list={classes}
+>
   <slot />
   {icon && (
     <span class="material-symbols-outlined text-[20px]" aria-hidden="true">

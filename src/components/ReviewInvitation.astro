@@ -1,0 +1,70 @@
+---
+// Static review invitation ("Charcoal interlude"). Always in the initial HTML,
+// independent of the deferred GoogleReviews island above it.
+import CTAButton from "./CallToActionBtn.astro";
+
+const reviewUrl = "https://g.page/r/CV1boDcK_PrJECE/review";
+---
+
+<section
+  class="bg-my-black px-6 py-10 text-white sm:py-20"
+  aria-labelledby="review-invitation-heading"
+>
+  <div class="mx-auto grid max-w-[1100px] items-center gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-14">
+    <div>
+      <p class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-gray">
+        Google Reviews
+      </p>
+      <h2
+        id="review-invitation-heading"
+        class="mb-4 text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-white"
+      >
+        The work is ours.
+        <span class="block">
+          The story is <span class="text-main">yours.</span>
+        </span>
+      </h2>
+      <p class="max-w-[460px] text-[17px] leading-relaxed text-gray">
+        Every home project is personal. We'd love to hear what the experience
+        was like for you.
+      </p>
+      <p class="mt-7 flex items-center gap-3 text-[13px] text-gray">
+        <span class="h-0.5 w-6 bg-main" aria-hidden="true"></span>
+        THF Construction · North Jersey
+      </p>
+    </div>
+
+    <div class="border-t border-white/15 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+      <p class="mb-5 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2rem] text-gray">
+        <span
+          class="material-symbols-outlined text-[20px] text-main"
+          aria-hidden="true"
+        >
+          chat
+        </span>
+        A note to our clients
+      </p>
+      <h3 class="mb-3 text-[22px] font-bold leading-snug tracking-tight text-white">
+        Worked with THF?
+        <span class="block">Tell us about it.</span>
+      </h3>
+      <p class="mb-6 text-[15px] leading-relaxed text-gray">
+        Your honest feedback helps us grow and helps other homeowners make an
+        informed choice.
+      </p>
+      <CTAButton
+        href={reviewUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        surface="dark"
+        icon="arrow_outward"
+        size="lg"
+        block
+        class="justify-between"
+      >
+        Leave a Google review
+      </CTAButton>
+      <p class="mt-3 text-[13px] text-gray">Opens Google in a new tab</p>
+    </div>
+  </div>
+</section>

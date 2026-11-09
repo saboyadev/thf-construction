@@ -1,74 +1,13 @@
 ---
-import TestimonialCard from "./TestimonialCard.astro";
-
-const items = [
-  {
-    name: "Maria & John K.",
-    town: "Wyckoff, NJ",
-    review:
-      "We interviewed three contractors and THF was the only one who actually listened. They came in on budget, on time, and our kitchen is exactly what we asked for — and then some.",
-    rating: 5,
-    img: "/images/carousel/02-slide.jpg",
-  },
-  {
-    name: "David S.",
-    town: "Clifton, NJ",
-    review:
-      "Wilder and his crew rebuilt the entire back of our house — siding, deck, and a paver patio. Clean job site every single day. Real craftsmanship, no shortcuts.",
-    rating: 5,
-    img: "/images/carousel/06-slide.jpg",
-  },
-  {
-    name: "The Almeida Family",
-    town: "Garfield, NJ",
-    review:
-      "They finished our basement and turned the attic into a real bedroom for our oldest. Family-owned shows in everything they do — they treated our home like their own.",
-    rating: 5,
-    img: "/images/carousel/09-slide.jpg",
-  },
-];
+// Permanent #reviews wrapper (nav target). Inside it: the deferred Google
+// Reviews island first (renders nothing until connected), then the static
+// invitation, which is always in the initial HTML.
+import GoogleReviews from "./GoogleReviews.astro";
+import ReviewInvitation from "./ReviewInvitation.astro";
 ---
 
-<section class="bg-light-gray py-10 sm:py-20" id="reviews">
-  <div class="mx-auto max-w-[1200px] px-6">
-    <div class="mb-10 text-center">
-      <p class="mb-3 text-xs font-medium uppercase tracking-[0.35rem] text-metallic">
-        Real Reviews
-      </p>
-      <h2 class="mb-3 text-[clamp(28px,4.2vw,38px)] font-bold leading-tight tracking-[-0.05rem] text-my-black">
-        What clients are <span class="text-main-hover">saying</span>
-      </h2>
-      <p class="mx-auto max-w-[680px] text-[17px] leading-relaxed text-metallic">
-        A few words from homeowners we've worked with around North Jersey. Names
-        and locations changed for privacy — written reviews coming to Google
-        soon.
-      </p>
-    </div>
-
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {items.map((t) => (
-        <TestimonialCard {...t} />
-      ))}
-    </div>
-
-    <div class="mx-auto mt-8 flex max-w-[700px] flex-col items-start gap-4 rounded-xl border border-rule bg-white p-4 text-sm text-dark-metallic sm:flex-row sm:items-center">
-      <span class="material-symbols-outlined text-[24px] text-main">
-        rate_review
-      </span>
-      <div class="flex-1 leading-relaxed">
-        <strong class="font-semibold text-my-black">
-          Recently worked with us?
-        </strong>{" "}
-        We're a young family business — your review on Google means the world.
-      </div>
-      <a
-        href="https://g.page/r/"
-        target="_blank"
-        rel="noopener"
-        class="rounded-md px-3.5 py-3 text-sm font-medium text-my-black hover:bg-light-gray"
-      >
-        Leave a review
-      </a>
-    </div>
-  </div>
-</section>
+<!-- scroll-mt matches the global section[id] rule (100px), which does not match a div -->
+<div id="reviews" class="scroll-mt-25">
+  <GoogleReviews server:defer />
+  <ReviewInvitation />
+</div>
