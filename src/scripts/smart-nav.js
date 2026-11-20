@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			placeholder.style.height = ''
 			nav.classList.remove('fixed', '-translate-y-full')
 			nav.classList.add('relative')
-			delete nav.dataset.scrolled
+			// The open mobile menu keeps the dark theme; mobile-menu.js clears it on close
+			if (mobileMenuButton?.getAttribute('aria-expanded') !== 'true') delete nav.dataset.scrolled
 		}
 		void nav.offsetHeight // force reflow so the class swap lands before transitions resume
 		nav.classList.remove('transition-none')
